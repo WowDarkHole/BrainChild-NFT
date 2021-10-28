@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Sans');
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -13,19 +22,100 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.app-bg {
+  background-size: cover;
+  background-position: center;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.app-bg-overlay {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.app-main {
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding-top: 40vh;
+  padding-bottom: 10vh;
+}
+
+.nft-level {
+  background-color: #23262D;
+  padding: 0px 100px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nft-level-mirror {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -40%);
+}
+
+.branchild-nft {
+  max-width: 100%;
+}
+
+.nft-experience {
+  max-width: 100%;
+}
+
+.nft-level-message-bar {
+  background-color: #65D6EE;
+  color: #23262D;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: 'DM Sans';
+  font-style: italic;
+  padding: 10px;
+  text-overflow: clip;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.anim-spin {
+  animation: App-logo-spin infinite 20s linear;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+@media only screen and (max-width: 1024px) {
+  .nft-level {
+    padding: 20px;
+  }
+
+  .nft-level-mirror {
+    width: 40vw;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .nft-level-mirror {
+    width: 60vw;
+    max-width: 50vh;
+  }
+
+  .nft-level {
+    padding: 20px;
+  }
+
+  .nft-experience {
+    padding-bottom: 0;
+  }
 }
 
 @keyframes App-logo-spin {
