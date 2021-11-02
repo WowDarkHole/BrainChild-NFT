@@ -15,10 +15,10 @@ const Hero = () => {
           </div>
           <div className="w-full nft-level-message-bar">
             <span className="inline-block animate-scroll-left1">
-              NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse
+              NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse
             </span>
             <span className="inline-block animate-scroll-left2" style={{animationDelay:'20s'}}>
-              &nbsp;NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse
+              &nbsp;NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse NFTS that are not just limited to the cryptoverse
             </span>
           </div>
         </div>
