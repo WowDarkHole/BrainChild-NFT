@@ -75,8 +75,8 @@
   background-color: #65D6EE;
   color: #23262D;
   font-weight: 700;
-  font-size: 18px;
-  font-family: 'DM Sans';
+  font-size: 24px;
+  font-family: 'Cormorant Garamond';
   font-style: italic;
   padding: 10px;
   text-overflow: clip;
@@ -89,6 +89,15 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.radial-mask > .bg {
+  transition: 0.5s;
+  clip-path: circle(360px at center);
+}
+
+.radial-mask > .bg:hover {
+  clip-path: circle(0px at center);
 }
 
 @media only screen and (max-width: 1024px) {

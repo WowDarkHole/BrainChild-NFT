@@ -15,3 +15,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer utilities {
+  @variants responsive, hover, group-hover, focus {
+    .circle-clip-36 {
+      clip-path: circle(360px at center);
+    }
+    .circle-clip-0 {
+      clip-path: circle(0px at center);
+    }
+  }
+}
