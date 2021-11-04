@@ -16,6 +16,48 @@ code {
     monospace;
 }
 
+:root {
+  --size: 10rem;
+}
+
+h1 {
+  --fluid-type-min-size: calc(30 / var(--item-total));
+  --fluid-type-max-size: calc(60 / var(--item-total));
+  --fluid-type-min-screen: 20;
+  --fluid-type-max-screen: 60;
+  /* font-size: calc( (var(--fluid-type-min-size) * 1rem) + (var(--fluid-type-max-size) - var(--fluid-type-min-size)) * (100vw - (var(--fluid-type-min-screen) * 1rem)) / (var(--fluid-type-max-screen) - var(--fluid-type-min-screen)) ); */
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Sora';
+  color: black;
+  /* letter-spacing: 1rem; */
+  width: var(--size);
+  height: var(--size);
+  max-width: 45rem;
+  max-height: 45rem;
+  position: relative;
+  border-radius: 50%;
+}
+
+.item {
+  --units: 1;
+  --l: calc(var(--item-total) + 1);
+  /* --rotationUnit: calc((1turn / var(--l)) * var(--item-index, 1) - 0.235turn); */
+  --rotationUnit: calc(0.1turn * var(--item-index, 1) - 0.235turn);
+  transform: rotate(var(--rotationUnit));
+  transform-origin: center;
+  width: calc(100% - 0.5rem);
+  height: calc(100% - 0.5rem);
+  top: 0.25rem;
+  left: 0.25rem;
+  text-align: center;
+  display: block !important;
+  position: absolute !important;
+}
+.char::before, .char::after {
+  display: none;
+}
+
 @layer utilities {
   @variants responsive, hover, group-hover, focus {
     .circle-clip-36 {
