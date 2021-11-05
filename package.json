@@ -11,6 +11,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-scroll-effects": "^1.0.13",
     "react-skroll": "^0.7.3",
     "react-spring": "^9.3.0",
     "splitting": "^1.0.6",

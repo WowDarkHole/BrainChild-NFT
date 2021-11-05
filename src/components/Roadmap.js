@@ -6,7 +6,7 @@ import Scrollbar from './Scrollbar';
 const Roadmap = () => {
   const [timeString, setTimeString] = useState(new Date());
   useEffect(() => {
-    const results = Splitting({ by: 'items', matching: 'span' });
+    Splitting({ by: 'items', matching: 'span' });
     
   }, [timeString]);
 
