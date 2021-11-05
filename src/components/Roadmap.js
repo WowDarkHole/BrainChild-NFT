@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Splitting from 'splitting';
 
-import Scrollbar from './Scrollbar';
-
 const Roadmap = () => {
   const [timeString, setTimeString] = useState(new Date());
   useEffect(() => {
@@ -49,8 +47,6 @@ const Roadmap = () => {
           </div>
         </div>
       </div>
-      <Scrollbar className="absolute bottom-20 left-16 hidden sm:block"/>
-      <embed className="absolute top-4 left-4 w-16 sm:hidden" src="/assets/btn_hero_scroll.png"/>
     </div>
   );
 }

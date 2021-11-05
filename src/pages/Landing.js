@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Concept from '../components/Concept';
 import Roadmap from '../components/Roadmap';
 import Connect from '../components/Connect';
+import Scrollbar from '../components/Scrollbar';
 
 
 const Landing = () => {
@@ -15,6 +16,8 @@ const Landing = () => {
           <Concept/>
           <Roadmap/>
           <Connect/>
+          <Scrollbar className="absolute bottom-20 left-16 hidden sm:block"/>
+          <embed className="absolute top-4 left-4 w-16 sm:hidden" src="/assets/btn_hero_scroll.png"/>
         </div>
       </div>
     </>

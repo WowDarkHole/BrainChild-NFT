@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Logo from './Logo';
-import Scrollbar from './Scrollbar';
 
 const Hero = () => {
   return (
@@ -27,10 +26,8 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <Scrollbar className="absolute bottom-20 left-16 hidden sm:block"/>
-          <embed className="absolute top-4 left-4 w-16 sm:hidden" src="/assets/btn_hero_scroll.png"/>
         </div>
-        </div>
+      </div>
   )
 }
 
