@@ -5,10 +5,14 @@
 
 #root {
   overflow: hidden;
+  height: 100vh;
+  position: relative;
 }
 
 .App {
   text-align: center;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .App-logo {
@@ -25,10 +29,14 @@
 .app-bg {
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
-  position: relative;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   font-size: calc(10px + 2vmin);
   color: white;
+  z-index: -1;
 }
 
 .app-bg-overlay {
@@ -98,6 +106,15 @@
 
 .radial-mask > .bg:hover {
   clip-path: circle(0px at center);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 @media only screen and (max-width: 1024px) {

@@ -5,7 +5,6 @@ import Scrollbar from './Scrollbar';
 
 const Hero = () => {
   return (
-    <div className="app-bg" style={{backgroundImage: 'url(/assets/resource_landing_image3.jpg)'}}>
       <div className="app-main" style={{backgroundImage: 'url(/assets/resource_landing_image1.svg)'}} >
         <div className="relative h-screen sm:min-h-192">
           <div className="relative h-full">
@@ -32,7 +31,6 @@ const Hero = () => {
           <embed className="absolute top-4 left-4 w-16 sm:hidden" src="/assets/btn_hero_scroll.png"/>
         </div>
         </div>
-      </div>
   )
 }
 
