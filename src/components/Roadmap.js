@@ -30,7 +30,7 @@ const Roadmap = () => {
           <div className="relative w-full">
             <embed className="m-auto" src="/assets/image_roadmap_timeline.svg"/>
             <h1 className="absolute left-1/2 top-full transform -translate-y-1/2 translate-x-1/4" data-splitting>
-              <div className="h-full w-full bg-cover" style={{backgroundImage: 'url(/assets/image_roadmap_left.png)'}}>
+              <div className="h-full w-full bg-cover rounded-full" style={{backgroundImage: 'url(/assets/image_ethereum_clock.gif)', clipPath: 'circle(49%)'}}>
                 <div className="h-full w-full animate-spin-slow">
                   <span className="item">{day}d</span>
                   <span className="item">{hour}h</span>
