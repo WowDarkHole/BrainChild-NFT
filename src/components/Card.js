@@ -25,7 +25,7 @@ const descUrls = {
 const Card = ({type}) => {
 
   return (
-    <div className="group relative radial-mask" style={{backgroundColor: '#22262A'}}>
+    <div className="group relative radial-mask" style={{backgroundColor: '#22262A', maxWidth: '24rem', maxHeight: '24rem'}}>
       <div className="absolute inline-flex flex-col justify-between h-full w-full items-start p-12 top-0 left-0">
         <img className="max-w-full invisible group-hover:visible transition duration-500 transform scale-125 group-hover:scale-100 origin-top-left translate-y-3 group-hover:translate-y-0" src={titleUrls[type]} alt=""/>
         <div className="max-w-full">
