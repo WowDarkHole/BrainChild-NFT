@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Slide = (props) => (
+const Slide = React.forwardRef((props, ref) => (
   <div {...props} style={{ ...props.style, height: '100%' }}>
-    {props.children}
+    {React.Children.map(props.children, (child) => (
+      React.cloneElement(child, {
+        ref: ref
+      })
+    ))}
   </div>
-);
+));
 
 Slide.propTypes = {
   children: PropTypes.node,

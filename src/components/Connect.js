@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-import Logo from './Logo';
-
-const Connect = () => {
+const Connect = forwardRef((_, ref) => {
   return (
     <div className="app-main" style={{backgroundImage: 'url(/assets/resource_landing_image1.svg)'}} >
-      <div className="relative h-screen sm:min-h-192">
+      <div className="relative h-screen">
         <div className="relative h-full">
-          <div className="absolute top-0 w-full">
+          <div className="absolute top-0 w-full" ref={ref}>
             <div className="w-full nft-level-message-bar">
               <span className="inline-block animate-scroll-left3">
                 &emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes&emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes
@@ -29,12 +27,11 @@ const Connect = () => {
                 <embed className="w-8 sm:w-12 xl:w-16" src="/assets/image_connect_telegram.svg"/>
               </div>
             </div>
-            <Logo className="top-ful left-1/2"/>
           </div>
         </div>
       </div>
     </div>
   )
-}
+});
 
 export default Connect;

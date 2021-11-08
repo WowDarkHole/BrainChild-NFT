@@ -4,6 +4,7 @@ import animatedScrollTo from '../utils/animated-scroll-to';
 import { getObjectValues } from '../utils/helpers';
 import Slide from './Slide';
 import Scrollbar from './Scrollbar';
+import Logo from './Logo';
 
 const scrollMode = {
   FULL_PAGE: 'full-page',
@@ -29,6 +30,7 @@ export default class FullPage extends React.Component {
     this._container = React.createRef();
     this._parent = React.createRef();
     this._goingUp = false;
+    this._refs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
 
     this.state = {
       activeSlide: props.initialSlide,
@@ -190,8 +192,13 @@ export default class FullPage extends React.Component {
   render() {
     return (
       <div style={{ height: this.state.height, overflowY: 'auto' }} onScroll={this.onScroll} ref={this._parent}>
-        {this.props.children}
+        {React.Children.map(this.props.children, (child, index) => (
+          React.cloneElement(child, {
+            ref: this._refs[index]
+          })
+        ))}
         <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" slide={this.state.activeSlide}/>
+        <Logo className="top-0 left-1/2" slide={this.state.activeSlide} ref={this._refs[this.state.activeSlide]}/>
       </div>
     );
   }
