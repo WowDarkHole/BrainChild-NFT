@@ -26,7 +26,7 @@ h1 {
   --fluid-type-min-screen: 20;
   --fluid-type-max-screen: 60;
   /* font-size: calc( (var(--fluid-type-min-size) * 1rem) + (var(--fluid-type-max-size) - var(--fluid-type-min-size)) * (100vw - (var(--fluid-type-min-screen) * 1rem)) / (var(--fluid-type-max-screen) - var(--fluid-type-min-screen)) ); */
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
   font-family: 'Sora';
   color: black;
@@ -65,6 +65,18 @@ h1 {
     }
     .circle-clip-0 {
       clip-path: circle(0px at center);
+    }
+
+    .scrollbar-title {
+      font-size: 22px;
+      line-height: 2.5rem;
+      background: -webkit-linear-gradient(bottom, #FFC6CE, #64D6EE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Cormorant Garamond';
+      font-weight: bolder;
+      writing-mode: vertical-lr;
+      -webkit-font-smoothing: antialiased;
     }
   }
 }

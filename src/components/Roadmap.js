@@ -18,6 +18,10 @@ const Roadmap = () => {
     return () => clearInterval(intervalId);
   }, [])
 
+  const formatNumber = (number) => {
+    return ("0"+number).slice(-2);
+  }
+
   const ref = useRef(null);
 
   const { onMouseDown } = useDraggableScroll(ref);
@@ -37,15 +41,15 @@ const Roadmap = () => {
             <h1 className="absolute left-1/2 top-full transform -translate-y-1/2 translate-x-1/4" data-splitting>
               <div className="h-full w-full bg-cover rounded-full" style={{backgroundImage: 'url(/assets/image_ethereum_clock.gif)', clipPath: 'circle(49%)'}}>
                 <div className="h-full w-full animate-spin-slow">
-                  <span className="item">{day}d</span>
-                  <span className="item">{hour}h</span>
-                  <span className="item">{minute}m</span>
-                  <span className="item">{second}s</span>
+                  <span className="item">{formatNumber(day)}d</span>
+                  <span className="item">{formatNumber(hour)}h</span>
+                  <span className="item">{formatNumber(minute)}m</span>
+                  <span className="item">{formatNumber(second)}s</span>
                   <span className="item">&emsp;</span>
-                  <span className="item">{day}d</span>
-                  <span className="item">{hour}h</span>
-                  <span className="item">{minute}m</span>
-                  <span className="item">{second}s</span>
+                  <span className="item">{formatNumber(day)}d</span>
+                  <span className="item">{formatNumber(hour)}h</span>
+                  <span className="item">{formatNumber(minute)}m</span>
+                  <span className="item">{formatNumber(second)}s</span>
                 </div>
               </div>
             </h1>
