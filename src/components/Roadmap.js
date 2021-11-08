@@ -11,7 +11,7 @@ const Roadmap = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const time = new Date();
+      const time = new Date();//-new Date(2021, 12, 15);
       setTimeString(time);
     }, 1000)
 
