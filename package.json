@@ -14,6 +14,7 @@
     "react-skroll": "^0.7.3",
     "react-spring": "^9.3.0",
     "splitting": "^1.0.6",
+    "use-draggable-scroll": "^0.1.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import useDraggableScroll from './DraggableScroll';
 import Splitting from 'splitting';
 
 const Roadmap = () => {
@@ -17,6 +18,10 @@ const Roadmap = () => {
     return () => clearInterval(intervalId);
   }, [])
 
+  const ref = useRef(null);
+
+  const { onMouseDown } = useDraggableScroll(ref);
+
   const day = timeString.getDate();
   const hour = timeString.getHours();
   const minute = timeString.getMinutes();
@@ -24,7 +29,7 @@ const Roadmap = () => {
 
   return (
     <div className="app-main" style={{backgroundImage: 'url(/assets/resource_landing_image4.svg)'}} >
-      <div className="relative h-screen flex items-center overflow-x-scroll overflow-y-hidden no-scrollbar" style={{cursor: 'url(/assets/image_cursor_drag.svg) auto'}}>
+      <div className="relative h-screen flex items-center overflow-x-scroll overflow-y-hidden no-scrollbar" ref={ref} onMouseDown={onMouseDown} style={{cursor: 'url(/assets/image_cursor_drag.svg), auto'}}>
         <div className="flex py-24 m-auto">
           <div className="absolute left-0 top-1/2 transform -translate-y-1/2 min-w-full" style={{height:'40px', backgroundColor:'#FF8797'}}>a</div>
           <div className="relative w-full">

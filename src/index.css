@@ -27,7 +27,7 @@ h1 {
   --fluid-type-max-screen: 60;
   /* font-size: calc( (var(--fluid-type-min-size) * 1rem) + (var(--fluid-type-max-size) - var(--fluid-type-min-size)) * (100vw - (var(--fluid-type-min-screen) * 1rem)) / (var(--fluid-type-max-screen) - var(--fluid-type-min-screen)) ); */
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 800;
   font-family: 'Sora';
   color: black;
   /* letter-spacing: 1rem; */

@@ -9,10 +9,10 @@ const Concept = () => {
       <div className="relative h-screen flex items-center justify-center overflow-y-scroll sm:overflow-y-hidden">
         <div className="flex px-8 md:px-32 py-16 sm:pt-32 sm:pb-24">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <Card type="participate"/> 
-            <Card type="vote"/> 
             <Card type="redeem"/> 
             <Card type="enhance"/>
+            <Card type="participate"/> 
+            <Card type="vote"/> 
           </div>
         </div>
       </div>

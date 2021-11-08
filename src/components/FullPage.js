@@ -3,6 +3,7 @@ import React from 'react';
 import animatedScrollTo from '../utils/animated-scroll-to';
 import { getObjectValues } from '../utils/helpers';
 import Slide from './Slide';
+import Scrollbar from './Scrollbar';
 
 const scrollMode = {
   FULL_PAGE: 'full-page',
@@ -190,6 +191,7 @@ export default class FullPage extends React.Component {
     return (
       <div style={{ height: this.state.height, overflowY: 'auto' }} onScroll={this.onScroll} ref={this._parent}>
         {this.props.children}
+        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" slide={this.state.activeSlide}/>
       </div>
     );
   }
