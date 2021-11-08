@@ -1,9 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import useDraggableScroll from './DraggableScroll';
 import Splitting from 'splitting';
+import moment from 'moment';
 
 const Roadmap = () => {
-  const [timeString, setTimeString] = useState(new Date());
+  const timeLeft = moment.duration(
+    moment('15/12/2021',"DD/MM/YYYY HH:mm:ss").diff(
+      moment(new Date(),"DD/MM/YYYY HH:mm:ss")
+    )
+  );
+
+  const [timeString, setTimeString] = useState(timeLeft);
+
   useEffect(() => {
     Splitting({ by: 'items', matching: 'span' });
     
@@ -11,8 +19,12 @@ const Roadmap = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const time = new Date();//-new Date(2021, 12, 15);
-      setTimeString(time);
+      const timeLeft = moment.duration(
+        moment('15/12/2021',"DD/MM/YYYY HH:mm:ss").diff(
+          moment(new Date(),"DD/MM/YYYY HH:mm:ss")
+        )
+      );
+      setTimeString(timeLeft);
     }, 1000)
 
     return () => clearInterval(intervalId);
@@ -25,11 +37,14 @@ const Roadmap = () => {
   const ref = useRef(null);
 
   const { onMouseDown } = useDraggableScroll(ref);
-
-  const day = timeString.getDate();
-  const hour = timeString.getHours();
-  const minute = timeString.getMinutes();
-  const second = timeString.getSeconds();
+  
+  const day = moment('15/12/2021',"DD/MM/YYYY HH:mm:ss").diff(
+    moment(new Date(),"DD/MM/YYYY HH:mm:ss"),
+    'days'
+  );
+  const hour = timeString.hours();
+  const minute = timeString.minutes();
+  const second = timeString.seconds();
 
   return (
     <div className="app-main" style={{backgroundImage: 'url(/assets/resource_landing_image4.svg)'}} >
