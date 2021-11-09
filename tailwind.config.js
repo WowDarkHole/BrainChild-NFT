@@ -3,11 +3,18 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        'portrait-sm': {'raw': '(orientation: portrait) and (max-width: 768px)'},
+        'landscape-sm': {'raw': '(orientation: landscape) and (max-width: 1024px)'},
+        'portrait': {'raw': '(orientation: portrait)'},
+        'landscape': {'raw': '(orientation: landscape)'},
+      },
       scale: {
         '85': '0.85'
       },
       minHeight: {
         '192': '48rem',
+        '400px': '400px',
         '1/2': '50%',
         'screen-1/2': '50vh',
         'screen-1/3': '33vh',

@@ -31,6 +31,7 @@ export default class FullPage extends React.Component {
     this._parent = React.createRef();
     this._goingUp = false;
     this._refs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
+    this._contentRefs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
 
     this.state = {
       activeSlide: props.initialSlide,
@@ -194,11 +195,11 @@ export default class FullPage extends React.Component {
       <div style={{ height: this.state.height, overflowY: 'auto' }} onScroll={this.onScroll} ref={this._parent}>
         {React.Children.map(this.props.children, (child, index) => (
           React.cloneElement(child, {
-            ref: this._refs[index]
+            ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index]}
           })
         ))}
         <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" slide={this.state.activeSlide}/>
-        <Logo className="top-0 left-1/2" slide={this.state.activeSlide} ref={this._refs[this.state.activeSlide]}/>
+        <Logo className="top-0 left-1/2" slide={this.state.activeSlide} ref={{containerRef: this._refs[this.state.activeSlide], contentRef: this._contentRefs[this.state.activeSlide]}}/>
       </div>
     );
   }
