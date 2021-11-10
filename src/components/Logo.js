@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { usePrevious } from './usePrevious';
 
 const Logo = React.forwardRef(({className, slide}, ref) => {
   const container = ref.containerRef.current;
   const content = ref.contentRef.current;
-  const parentClass = "absolute transform -translate-x-1/2 transition-all duration-1000 " + className + (slide > 0 && slide < 3 ? "" : " -translate-y-1/2");
+
+  const previousSlide = usePrevious(slide);
+  // console.log(previousSlide, slide);
+  const parentClass = "absolute transform -translate-x-1/2 transition-all duration-1000 " + className + (slide > 0 && slide < 3 ? "" : " -translate-y-1/2")+(slide === previousSlide ? "" : "");
 
   const parentStyle = {top: '20px'};
   if(slide === 0) parentStyle.top = container?.scrollHeight - (container?.scrollTop || 0) - (content?.scrollHeight || 0);
@@ -22,7 +26,7 @@ const Logo = React.forwardRef(({className, slide}, ref) => {
   return (
     <div className={parentClass} style={parentStyle}>
       <div className={containerClass}>
-        <div className="p-2 sm:p-3 rounded-full" style={{backgroundColor: '#22262A'}}>
+        <div className="p-1 sm:p-2 rounded-full" style={{backgroundColor: '#22262A'}}>
           <img className="animate-spin-slow w-full h-full" src="/assets/text_hero_brainchild.png" alt=""/>
         </div>
         <embed className={logoClass}  style={{backgroundColor: '#22262A'}} src="/assets/logo_brain.svg" alt=""/>

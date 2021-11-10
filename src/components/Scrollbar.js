@@ -39,8 +39,8 @@ const Scrollbar = ({slide}) => {
             <div className={"scrollbar-title w-full duration-1000 "+(animationStart !== 0 ? "transition-all" : "transition-none")} style={(animationStart !== 0 ? {} : {marginLeft: '-2.45rem'})}>{texts[slide]}</div>
             <div className={"scrollbar-title w-full duration-1000 "+(animationStart !== 0 ? "transition-all": "transition-none")}>{texts[prevTitle]}</div>
           </div>
-          <div className="relative h-44 w-px bg-gray-500 mx-auto">
-            <embed className="absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000" style={{top: 3*slide+'rem'}} src="/assets/scroll_thumb.svg"/>
+          <div className="relative h-36 w-px bg-gray-500 mx-auto">
+            <embed className="absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000" style={{top: 2.4*slide+'rem'}} src="/assets/scroll_thumb.svg"/>
           </div>
           <embed className={arrowClass} src="/assets/scroll_arrow.svg"/>
         </div>
