@@ -26,10 +26,10 @@ h1 {
   --fluid-type-min-screen: 20;
   --fluid-type-max-screen: 60;
   /* font-size: calc( (var(--fluid-type-min-size) * 1rem) + (var(--fluid-type-max-size) - var(--fluid-type-min-size)) * (100vw - (var(--fluid-type-min-screen) * 1rem)) / (var(--fluid-type-max-screen) - var(--fluid-type-min-screen)) ); */
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 800;
   font-family: 'Sora';
-  color: black;
+  color: #22262A;
   /* letter-spacing: 1rem; */
   width: var(--size);
   height: var(--size);

@@ -48,9 +48,8 @@ const Roadmap = forwardRef((_, ref) => {
 
   return (
     <div className="app-main" style={{backgroundImage: 'url(/assets/resource_landing_image4.svg)'}} >
-      <div className="relative h-screen flex items-center overflow-x-scroll overflow-y-scroll no-scrollbar" ref={dragRef} onMouseDown={onMouseDown} style={{cursor: 'url(/assets/image_cursor_drag.svg), auto'}}>
+      <div className="relative h-screen flex items-center overflow-x-scroll overflow-y-scroll no-scrollbar" ref={dragRef} onMouseDown={onMouseDown}>
         <div className="flex py-24 m-auto w-full" ref={ref.containerRef}>
-          {/* <div className="absolute left-0 top-1/2 transform -translate-y-1/2 min-w-full" style={{height:'40px', backgroundColor:'#FF8797'}}>a</div> */}
           <div className="relative w-full" style={{minWidth: '1024px'}}>
             <embed className="pointer-events-none m-auto w-full" src="/assets/image_roadmap_timeline.svg"/>
             <h1 className="absolute left-1/2 top-full transform -translate-y-1/2 translate-x-1/4" data-splitting>

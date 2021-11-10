@@ -12,8 +12,8 @@ const Scrollbar = ({slide}) => {
     'Connect',
   ];
 
-  const arrowClass = "animate-bounce mx-auto transition-all absolute duration-1000 px-1.5 w-full " + (slide > 0 ? "opacity-0 -bottom-16": "opacity-100 bottom-0");
-  const barClass = "relative h-full transition-all duration-1000 " + (slide > 0 ? "pb-0": "pb-16");
+  const arrowClass = "animate-bounce mx-auto transition-all absolute duration-1000 px-1.5 w-full -top-20 " + (slide > 0 ? "opacity-0": "opacity-100");
+  const barClass = "relative h-full transition-all duration-1000 ";
 
   const [animationStart, setAnimationStart] = useState(0);
   const prevSlide = usePrevious(slide);

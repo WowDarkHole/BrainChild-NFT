@@ -9,10 +9,10 @@ const backgroundUrls = {
 };
 
 const titleUrls = {
-  vote: '/assets/text_concept_vote.png',
-  participate: '/assets/text_concept_participate.png',
-  redeem: '/assets/text_concept_redeem.png',
-  enhance: '/assets/text_concept_enhance.png',
+  vote: '/assets/text_concept_vote.svg',
+  participate: '/assets/text_concept_participate.svg',
+  redeem: '/assets/text_concept_redeem.svg',
+  enhance: '/assets/text_concept_enhance.svg',
 };
 
 const descUrls = {
@@ -27,7 +27,7 @@ const Card = ({type}) => {
   return (
     <div className="group relative radial-mask" style={{backgroundColor: '#22262A', maxWidth: '24rem', maxHeight: '24rem'}}>
       <div className="absolute inline-flex flex-col justify-between h-full w-full items-start p-12 top-0 left-0">
-        <img className="max-w-full invisible group-hover:visible transition duration-500 transform scale-125 group-hover:scale-100 origin-top-left translate-y-3 group-hover:translate-y-0" src={titleUrls[type]} alt=""/>
+        <embed className="max-w-full invisible group-hover:visible transition duration-500 transform scale-125 group-hover:scale-100 origin-top-left translate-y-3 group-hover:translate-y-0" src={titleUrls[type]} alt=""/>
         <div className="max-w-full">
           <embed className="my-8 max-w-full invisible group-hover:visible transform duration-500 translate-y-10 group-hover:translate-y-0" src={descUrls[type]}/>
           <embed className="max-w-full transition duration-500 opacity-0 group-hover:opacity-100" src="/assets/btn_concept_learnmore.svg"/>
