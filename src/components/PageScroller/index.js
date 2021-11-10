@@ -213,51 +213,51 @@ const ReactPageScroller = ({
 
   const touchMove = useCallback(
     event => {
-      // if (!isNull(previousTouchMove)) {
-      //   if (event.touches[0].clientY > previousTouchMove + 60) {
-      //     scrollWindowUp();
-      //   } else if (event.touches[0].clientY < previousTouchMove - 60) {
-      //     scrollWindowDown();
-      //   }
-      // } else {
-      //   previousTouchMove = event.touches[0].clientY;
-      // }
+      if (!isNull(previousTouchMove)) {
+        if (event.touches[0].clientY > previousTouchMove + 60) {
+          scrollWindowUp();
+        } else if (event.touches[0].clientY < previousTouchMove - 60) {
+          scrollWindowDown();
+        }
+      } else {
+        previousTouchMove = event.touches[0].clientY;
+      }
       // console.log(previousTouchMove, event.touches[0].clientY);
       // if(isNull(previousTouchMove)) previousTouchMove = event.touches[0].clientY;
     },
     [scrollWindowDown, scrollWindowUp],
   );
 
-  const touchStart = useCallback(
-    event => {
-      // if (!isNull(previousTouchMove)) {
-      //   if (event.touches[0].clientY > previousTouchMove) {
-      //     scrollWindowUp();
-      //   } else {
-      //     scrollWindowDown();
-      //   }
-      // } else {
-      //   previousTouchMove = event.touches[0].clientY;
-      // }
-      if(isNull(previousTouchMove)) previousTouchMove = event.changedTouches[0].clientY;
-    },
-    [scrollWindowDown, scrollWindowUp],
-  );
+  // const touchStart = useCallback(
+  //   event => {
+  //     // if (!isNull(previousTouchMove)) {
+  //     //   if (event.touches[0].clientY > previousTouchMove) {
+  //     //     scrollWindowUp();
+  //     //   } else {
+  //     //     scrollWindowDown();
+  //     //   }
+  //     // } else {
+  //     //   previousTouchMove = event.touches[0].clientY;
+  //     // }
+  //     if(isNull(previousTouchMove)) previousTouchMove = event.changedTouches[0].clientY;
+  //   },
+  //   [scrollWindowDown, scrollWindowUp],
+  // );
 
-  const touchEnd = useCallback(
-    event => {
-      // console.log(event);
-      console.log(previousTouchMove, event.changedTouches[0].clientY);
-      if (!isNull(previousTouchMove)) {
-        if (event.changedTouches[0].clientY > previousTouchMove) {
-          scrollWindowUp();
-        } else {
-          scrollWindowDown();
-        }
-      }
-    },
-    [scrollWindowDown, scrollWindowUp],
-  );
+  // const touchEnd = useCallback(
+  //   event => {
+  //     // console.log(event);
+  //     console.log(previousTouchMove, event.changedTouches[0].clientY);
+  //     if (!isNull(previousTouchMove)) {
+  //       if (event.changedTouches[0].clientY > previousTouchMove) {
+  //         scrollWindowUp();
+  //       } else {
+  //         scrollWindowDown();
+  //       }
+  //     }
+  //   },
+  //   [scrollWindowDown, scrollWindowUp],
+  // );
 
   const wheelScroll = useCallback(
     event => {
@@ -289,8 +289,8 @@ const ReactPageScroller = ({
   useEffect(() => {
     const instance = scrollContainer.current;
     instance.addEventListener(Events.TOUCHMOVE, touchMove);
-    instance.addEventListener(Events.TOUCHSTART, touchStart);
-    instance.addEventListener(Events.TOUCHEND, touchEnd);
+    // instance.addEventListener(Events.TOUCHSTART, touchStart);
+    // instance.addEventListener(Events.TOUCHEND, touchEnd);
     instance.addEventListener(Events.KEYDOWN, keyPress);
     return () => {
       instance.removeEventListener(Events.TOUCHMOVE, touchMove);
