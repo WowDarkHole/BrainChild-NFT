@@ -17,6 +17,7 @@ module.exports = {
         '120': '30rem',
         '140': '35rem',
         '160': '40rem',
+        'screen-2': '200vw',
         // '240': '60rem',
       },
       maxWidth: {

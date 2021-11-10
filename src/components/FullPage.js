@@ -36,6 +36,7 @@ export default class FullPage extends React.Component {
 
     this.state = {
       activeSlide: props.initialSlide,
+      scroll: 0,
       slidesCount: FullPage.getChildrenCount(this.props.children),
     };
   }
@@ -131,30 +132,8 @@ export default class FullPage extends React.Component {
     if (this._isScrollPending) {
       return;
     }
-    // const scrollDown = (evt.wheelDelta || -evt.deltaY || -evt.detail) < 0;
-    let { activeSlide } = this.state;
-
     const currentScrollY = evt.target.scrollTop;
-
-    if(Math.abs(this._container.current - currentScrollY) < 200) return;
-
-    if (this._container.current < currentScrollY && this._goingUp) {
-      this._goingUp = false;
-    }
-    if (this._container.current > currentScrollY && !this._goingUp) {
-      this._goingUp = true;
-    }
-    this._container.current = currentScrollY;
-
-    if(this._goingUp) {
-      activeSlide --;
-    } else {
-      activeSlide ++;
-    }
-
-    activeSlide = Math.max(0, activeSlide);
-
-    this.scrollToSlide(activeSlide);
+    this.setState({scroll: currentScrollY});
   }
 
   getSlidesCount = () => this.state.slidesCount
@@ -199,8 +178,8 @@ export default class FullPage extends React.Component {
             ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index]}
           })
         ))}
-        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" slide={this.state.activeSlide}/>
-        <Logo className="top-0 left-1/2" slide={this.state.activeSlide} ref={{containerRef: this._refs[this.state.activeSlide], contentRef: this._contentRefs[this.state.activeSlide]}}/>
+        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" slide={this.state.activeSlide} scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
+        <Logo className="top-0 left-1/2" scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
       </div>
     );
   }
