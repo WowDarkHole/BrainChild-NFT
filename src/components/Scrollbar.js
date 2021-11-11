@@ -12,17 +12,17 @@ const Scrollbar = forwardRef(({scroll}, ref) => {
     'Connect',
   ];
 
-  const arrowClass = "animate-bounce mx-auto absolute px-1.5 w-full -top-20 ";
+  const arrowClass = "animate-bounce mx-auto absolute px-1.5 w-full -top-20 transition-all duration-700 ";
   const barClass = "relative h-full transition-all duration-1000 ";
 
-  const arrowStyle= {opacity: 1};
+  const arrowStyle= {opacity: 0};
   let slide = 0;
 
   if(scroll < 5) {
     arrowStyle.opacity = 1;
   } else if (scroll < ref.containerRefs[0].current?.scrollHeight) {
     if(ref.containerRefs[0].current?.scrollHeight > 0) {
-      const percent = scroll/ref.containerRefs[0].current?.scrollHeight;
+      const percent = 1;//scroll/ref.containerRefs[0].current?.scrollHeight;
       arrowStyle.opacity = 1-percent;
     }
     slide = 0;

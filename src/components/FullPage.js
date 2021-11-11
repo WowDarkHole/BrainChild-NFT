@@ -4,6 +4,7 @@ import { getObjectValues } from '../utils/helpers';
 import Slide from './Slide';
 import Scrollbar from './Scrollbar';
 import Logo from './Logo';
+import isMobileDevice from '../utils/is-mobile';
 
 const scrollMode = {
   FULL_PAGE: 'full-page',
@@ -32,13 +33,13 @@ export default class FullPage extends React.Component {
     this._refs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
     this._contentRefs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
 
-    console.log(this.props.duration);
-
     this.state = {
       activeSlide: props.initialSlide,
       scroll: 0,
       slidesCount: FullPage.getChildrenCount(this.props.children),
     };
+
+    this.getVisiblePattern = this.getVisiblePattern.bind(this);
   }
 
   componentDidMount() {
@@ -170,15 +171,31 @@ export default class FullPage extends React.Component {
     // }
   }
 
+  getVisiblePattern() {
+    if(this.state.scroll < this._refs[0].current?.scrollHeight-this._contentRefs[0].current?.scrollHeight) {
+      return 0;
+    }
+    if(this.state.scroll > this._refs[0].current?.scrollHeight+this._refs[1].current?.scrollHeight+this._refs[2].current?.scrollHeight/2) {
+      return 0;
+    }
+
+    return 1;
+  }
+
   render() {
+    const visiblePattern = this.getVisiblePattern();
+    const filledPatternClass = "app-main transition-all duration-700 "+(isMobileDevice() ? "" : "") + (visiblePattern === 0 ? "opacity-100": "opacity-0");
+    const outlinedPatterClass = "app-main transition-all duration-700 "+(isMobileDevice() ? "" : "") + (visiblePattern === 1 ? "opacity-100": "opacity-0");
     return (
       <div style={{ height: this.state.height, overflowY: 'auto' }} onScroll={this.onScroll} ref={this._parent}>
+        <div className={filledPatternClass} style={{backgroundImage:'url(/assets/resource_landing_image1.svg)'}}></div>
+        <div className={outlinedPatterClass} style={{backgroundImage:'url(/assets/resource_landing_image4.svg)'}}></div>
         {React.Children.map(this.props.children, (child, index) => (
           React.cloneElement(child, {
             ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index]}
           })
         ))}
-        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" slide={this.state.activeSlide} scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
+        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
         <Logo className="top-0 left-1/2" scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
       </div>
     );

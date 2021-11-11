@@ -1,9 +1,20 @@
 import React from 'react';
-import { usePrevious } from './usePrevious';
 
-const Logo = React.forwardRef(({className, slide, scroll}, ref) => {
-  const previousSlide = usePrevious(slide);
-  const parentClass = "absolute transform -translate-x-1/2 pointer-events-none " + className + (slide > 0 && slide < 3 ? "" : " -translate-y-1/2")+(slide === previousSlide ? "" : "");
+const Logo = React.forwardRef(({className, scroll}, ref) => {
+
+  let slide = 0;
+
+  if (scroll < 5) {
+    slide = 0;
+  } else if (scroll < ref.containerRefs[0].current?.scrollHeight+ref.containerRefs[1].current?.scrollHeight) {
+    slide = 1;
+  } else if(scroll < ref.containerRefs[0].current?.scrollHeight+ref.containerRefs[1].current?.scrollHeight+ref.containerRefs[2].current?.scrollHeight){
+    slide = 2;
+  } else {
+    slide = 3;
+  }
+  
+  const parentClass = "absolute transform -translate-x-1/2 pointer-events-none transition-all duration-700 -translate-y-1/2 " + className;
 
   const parentStyle = {top: '70px'};
   const containerStyle= {width: '11rem', height: '11rem'}
@@ -14,17 +25,18 @@ const Logo = React.forwardRef(({className, slide, scroll}, ref) => {
   } else if (scroll < ref.containerRefs[0].current?.scrollHeight) {
     const fromPos = ref.containerRefs[0].current?.scrollHeight - ref.contentRefs[0].current?.scrollHeight;
     if(ref.containerRefs[0].current?.scrollHeight > 0) {
-      const percent = scroll/ref.containerRefs[0].current?.scrollHeight;
+      const percent = 1;//scroll/ref.containerRefs[0].current?.scrollHeight;
       parentStyle.top = fromPos-(fromPos-70)*percent;
 
       let value = (11-6*percent)+'rem';
       if(window.innerWidth > 1024) value = (16-11*percent)+'rem';
       containerStyle.width = containerStyle.height = value;
     }
-  } else if (scroll > ref.containerRefs[0].current?.scrollHeight+ref.containerRefs[1].current?.scrollHeight) {
+  } else if (scroll > ref.containerRefs[0].current?.scrollHeight+ref.containerRefs[1].current?.scrollHeight+ref.containerRefs[2].current?.scrollHeight-10) {
+    console.log(ref.containerRefs[0].current?.scrollHeight+ref.containerRefs[1].current?.scrollHeight+ref.containerRefs[2].current?.scrollHeight+ref.containerRefs[3].current?.scrollHeight-10);
     const toPos = ref.contentRefs[3].current?.scrollHeight;
     if(ref.containerRefs[3].current?.scrollHeight > 0) {
-      const percent = (scroll-ref.containerRefs[0].current?.scrollHeight-ref.containerRefs[1].current?.scrollHeight)/ref.containerRefs[2].current?.scrollHeight;
+      const percent = 1;//(scroll-ref.containerRefs[0].current?.scrollHeight-ref.containerRefs[1].current?.scrollHeight)/ref.containerRefs[2].current?.scrollHeight;
       parentStyle.top = 70-(70-toPos)*percent;
 
       let value = (5+6*percent)+'rem';
@@ -32,6 +44,7 @@ const Logo = React.forwardRef(({className, slide, scroll}, ref) => {
       containerStyle.width = containerStyle.height = value;
     }
   } else {
+    parentStyle.top = '70px';
     containerStyle.width = containerStyle.height = '5rem';
   }
 
