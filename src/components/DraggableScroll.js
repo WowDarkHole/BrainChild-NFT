@@ -17,11 +17,11 @@ export default function useDraggableScroll(
     if (ref.current) {
       // Calculate differences to see how far the user has moved
       const dx = event.clientX - initialPosition.mouseX;
-      const dy = event.clientY - initialPosition.mouseY;
+      // const dy = event.clientY - initialPosition.mouseY;
 
       // Scroll the element according to those differences
-      if (direction !== 'horizontal')
-        ref.current.scrollTop = initialPosition.scrollTop - dy;
+      // if (direction !== 'horizontal')
+      //   ref.current.scrollTop = initialPosition.scrollTop - dy;
       if (direction !== 'vertical')
         ref.current.scrollLeft = initialPosition.scrollLeft - dx;
     }
