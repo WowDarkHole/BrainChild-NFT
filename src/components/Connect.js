@@ -4,10 +4,10 @@ import isMobileDevice from '../utils/is-mobile';
 
 const Connect = forwardRef((_, ref) => {
   return (
-    <div className="relative h-screen overflow-y-scroll no-scrollbar" ref={ref.containerRef}>
-      <div className="relative h-full min-h-400px">
-        <div className="absolute top-0 w-full" ref={ref.contentRef}>
-          <div className="w-full nft-level-message-bar">
+    <div className="relative min-h-screen overflow-y-scroll no-scrollbar" ref={ref.containerRef}>
+      <div className="relative h-full min-h-500px">
+        <div className="w-full" ref={ref.contentRef}>
+          <div className="w-full nft-level-message-bar sticky top-0">
             <span className="inline-block animate-scroll-left3">
               &emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes&emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes &emsp;Join us behind the scenes
             </span>

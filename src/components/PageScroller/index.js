@@ -157,7 +157,6 @@ const ReactPageScroller = ({
         isScrolling = true;
         scrollPage(componentIndex + 1);
 
-        console.log('window down');
         setTimeout(() => {
           if (isMounted) {
             setComponentIndex(prevState => prevState + 1);

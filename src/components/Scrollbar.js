@@ -20,19 +20,19 @@ const Scrollbar = forwardRef(({scroll}, ref) => {
 
   if(scroll < 5) {
     arrowStyle.opacity = 1;
-  } else if (scroll < ref.containerRefs[0].current?.scrollHeight) {
-    if(ref.containerRefs[0].current?.scrollHeight > 0) {
-      const percent = 1;//scroll/ref.containerRefs[0].current?.scrollHeight;
+  } else if (scroll < ref.containerRefs[0].current?.clientHeight) {
+    if(ref.containerRefs[0].current?.clientHeight > 0) {
+      const percent = 1;//scroll/ref.containerRefs[0].current?.clientHeight;
       arrowStyle.opacity = 1-percent;
     }
     slide = 0;
-  } else if (scroll < ref.containerRefs[0].current?.scrollHeight+ref.containerRefs[1].current?.scrollHeight) {
-    if(ref.containerRefs[3].current?.scrollHeight > 0) {
-      const percent = (scroll-ref.containerRefs[0].current?.scrollHeight-ref.containerRefs[1].current?.scrollHeight)/ref.containerRefs[2].current?.scrollHeight;
+  } else if (scroll < ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight) {
+    if(ref.containerRefs[3].current?.clientHeight > 0) {
+      const percent = (scroll-ref.containerRefs[0].current?.clientHeight-ref.containerRefs[1].current?.clientHeight)/ref.containerRefs[2].current?.clientHeight;
       arrowStyle.opacity = percent;
     }
     slide = 1;
-  } else if(scroll < ref.containerRefs[0].current?.scrollHeight+ref.containerRefs[1].current?.scrollHeight+ref.containerRefs[2].current?.scrollHeight){
+  } else if(scroll < ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+ref.containerRefs[2].current?.clientHeight){
     arrowStyle.opacity = 0;
     slide = 2;
   } else {

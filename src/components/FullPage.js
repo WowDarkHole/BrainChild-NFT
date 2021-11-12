@@ -137,6 +137,11 @@ export default class FullPage extends React.Component {
     this.setState({scroll: currentScrollY});
   }
 
+  scrollTo = () => {
+    this._parent.current.scrollTop = 0;
+    this.setState({scroll: 0});
+  }
+
   getSlidesCount = () => this.state.slidesCount
 
   getCurrentSlideIndex = () => this.state.activeSlide
@@ -172,10 +177,10 @@ export default class FullPage extends React.Component {
   }
 
   getVisiblePattern() {
-    if(this.state.scroll < this._refs[0].current?.scrollHeight-this._contentRefs[0].current?.scrollHeight) {
+    if(this.state.scroll < this._refs[0].current?.clientHeight-this._contentRefs[0].current?.clientHeight) {
       return 0;
     }
-    if(this.state.scroll > this._refs[0].current?.scrollHeight+this._refs[1].current?.scrollHeight+this._refs[2].current?.scrollHeight/2) {
+    if(this.state.scroll > this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight/2) {
       return 0;
     }
 
@@ -196,7 +201,7 @@ export default class FullPage extends React.Component {
           })
         ))}
         <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
-        <Logo className="top-0 left-1/2" scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
+        <Logo className="top-0 left-1/2" scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}} onClick={this.scrollTo}/>
       </div>
     );
   }

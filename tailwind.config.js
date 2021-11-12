@@ -36,6 +36,7 @@ module.exports = {
       minHeight: {
         '192': '48rem',
         '400px': '400px',
+        '500px': '500px',
         '1/2': '50%',
         'screen-1/2': '50vh',
         'screen-1/3': '33vh',
