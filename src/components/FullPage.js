@@ -30,6 +30,7 @@ export default class FullPage extends React.Component {
     this._container = React.createRef();
     this._parent = React.createRef();
     this._goingUp = false;
+    this._reference = React.createRef();
     this._refs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
     this._contentRefs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
 
@@ -37,6 +38,7 @@ export default class FullPage extends React.Component {
       activeSlide: props.initialSlide,
       scroll: 0,
       slidesCount: FullPage.getChildrenCount(this.props.children),
+      scrollbarWidth: 0,
     };
 
     this.getVisiblePattern = this.getVisiblePattern.bind(this);
@@ -98,8 +100,16 @@ export default class FullPage extends React.Component {
 
   onResize = () => {
     this.updateSlides();
+
+    this.divElement.style.display = 'block';
+    const halfHeight = this.divElement.clientHeight;
+    this.divElement.style.display = 'hidden';
+
+    const scrollbarWidth =  window.innerWidth - this._parent.current?.clientWidth;
     this.setState({
       height: window.innerHeight,
+      halfHeight: halfHeight,
+      scrollbarWidth: scrollbarWidth,
     });
   }
 
@@ -180,7 +190,7 @@ export default class FullPage extends React.Component {
     if(this.state.scroll < this._refs[0].current?.clientHeight-this._contentRefs[0].current?.clientHeight) {
       return 0;
     }
-    if(this.state.scroll > this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight/2) {
+    if(this.state.scroll > this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+this._refs[3].current?.clientHeight/2+this.state.halfHeight*1.5) {
       return 0;
     }
 
@@ -193,6 +203,7 @@ export default class FullPage extends React.Component {
     const outlinedPatterClass = "app-main transition-all duration-700 "+(isMobileDevice() ? "" : "") + (visiblePattern === 1 ? "opacity-100": "opacity-0");
     return (
       <div style={{ height: this.state.height, overflowY: 'auto' }} onScroll={this.onScroll} ref={this._parent}>
+        <div className="absolute hidden" ref={ (divElement) => { this.divElement = divElement } } style={{height: '50vh'}}>a</div>
         <div className={filledPatternClass} style={{backgroundImage:'url(/assets/resource_landing_image1.svg)'}}></div>
         <div className={outlinedPatterClass} style={{backgroundImage:'url(/assets/resource_landing_image4.svg)'}}></div>
         {React.Children.map(this.props.children, (child, index) => (
@@ -200,8 +211,14 @@ export default class FullPage extends React.Component {
             ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index]}
           })
         ))}
-        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
-        <Logo className="top-0 left-1/2" scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}} onClick={this.scrollTo}/>
+        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" halfHeight={this.state.halfHeight} scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
+        <Logo className="top-0 left-1/2"
+          onClick={this.scrollTo}
+          scroll={this.state.scroll}
+          halfHeight={this.state.halfHeight}
+          scrollbarWidth={this.state.scrollbarWidth}
+          ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}
+        />
       </div>
     );
   }

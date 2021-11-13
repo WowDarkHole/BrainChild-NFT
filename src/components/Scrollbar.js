@@ -3,7 +3,7 @@ import React, { forwardRef, useEffect, useState } from 'react';
 import { usePrevious } from './usePrevious';
 import isMobileDevice from '../utils/is-mobile';
 
-const Scrollbar = forwardRef(({scroll}, ref) => {
+const Scrollbar = forwardRef(({scroll, halfHeight}, ref) => {
 
   const texts = [
     'Scroll',
@@ -26,13 +26,13 @@ const Scrollbar = forwardRef(({scroll}, ref) => {
       arrowStyle.opacity = 1-percent;
     }
     slide = 0;
-  } else if (scroll < ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight) {
+  } else if (scroll < ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+halfHeight) {
     if(ref.containerRefs[3].current?.clientHeight > 0) {
       const percent = (scroll-ref.containerRefs[0].current?.clientHeight-ref.containerRefs[1].current?.clientHeight)/ref.containerRefs[2].current?.clientHeight;
       arrowStyle.opacity = percent;
     }
     slide = 1;
-  } else if(scroll < ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+ref.containerRefs[2].current?.clientHeight){
+  } else if(scroll < ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+ref.containerRefs[2].current?.clientHeight+3*halfHeight-20){
     arrowStyle.opacity = 0;
     slide = 2;
   } else {
