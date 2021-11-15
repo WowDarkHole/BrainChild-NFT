@@ -139,9 +139,7 @@ export default class FullPage extends React.Component {
 
   onScroll = (scrollbar, scrollStatus) => {
     const currentScrollY = scrollbar.target.scrollTop;
-    setTimeout(() => {
-      this.setState({scroll: currentScrollY});
-    }, 100);
+    this.setState({scroll: currentScrollY});
   }
 
   onScrollbar = (value) => {
