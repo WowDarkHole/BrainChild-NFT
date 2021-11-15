@@ -58,6 +58,8 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
 
   const handleChange = (event, value) => {
     setScrollValue(value);
+    const value1 = Math.min((100-scrollValue)*maxScroll/100, maxScroll);
+    onScroll(value1);
   }
 
   useEffect(() => {
@@ -67,8 +69,8 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
   }, [scroll, onScroll, maxScroll])
 
   useEffect(() => {
-    const value = Math.min((100-scrollValue)*maxScroll/100, maxScroll);
-    onScroll(value);
+    // const value = Math.min((100-scrollValue)*maxScroll/100, maxScroll);
+    // onScroll(value);
   }, [scrollValue, onScroll, maxScroll]);
 
   let prevTitle = slide-animationStart;
