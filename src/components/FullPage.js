@@ -144,7 +144,7 @@ export default class FullPage extends React.Component {
 
   onScrollbar = (value) => {
     if(Math.abs(value-this._parent.current.scrollTop) < 1) return;
-    this._parent.current.scrollTop = value;
+    // this._parent.current.scrollTop = value;
   }
 
   scrollTo = () => {
