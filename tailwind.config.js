@@ -21,6 +21,7 @@ module.exports = {
         // '240': '60rem',
       },
       margin: {
+        'screen-1/4': '25vh',
         'screen-1/2': '50vh',
       },
       maxWidth: {

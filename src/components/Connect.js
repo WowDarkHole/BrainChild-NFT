@@ -4,7 +4,7 @@ import isMobileDevice from '../utils/is-mobile';
 
 const Connect = forwardRef((_, ref) => {
   return (
-    <div className="relative min-h-screen overflow-y-scroll no-scrollbar mt-screen-1/2" ref={ref.containerRef}>
+    <div className="relative min-h-screen overflow-y-scroll no-scrollbar mt-screen-1/4" ref={ref.containerRef}>
       <div className="relative h-full min-h-500px">
         <div className="w-full" ref={ref.contentRef}>
           <div className="w-full nft-level-message-bar sticky top-0">

@@ -45,7 +45,7 @@ const Roadmap = forwardRef((_, ref) => {
   const second = timeString.seconds();
 
   return (
-    <div className="relative min-h-screen flex items-center overflow-x-scroll overflow-y-hidden no-scrollbar mt-screen-1/2" ref={ref.containerRef} onMouseDown={onMouseDown}>
+    <div className="relative min-h-screen flex items-center overflow-x-scroll overflow-y-hidden no-scrollbar mt-screen-1/4" ref={ref.containerRef} onMouseDown={onMouseDown}>
       <div className="flex py-24 m-auto w-full" ref={ref.contentRef}>
         <div className="relative w-full" id="scroll2" style={{minWidth: '1024px'}}>
           <embed className="pointer-events-none m-auto w-full" src="/assets/image_roadmap_timeline.svg"/>

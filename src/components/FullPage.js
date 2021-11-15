@@ -214,7 +214,7 @@ export default class FullPage extends React.Component {
           ref={this._parent}
           id="my-scrollbar"
         >
-          <div className="absolute opacity-0" ref={ (divElement) => { this.divElement = divElement } } style={{height: '50vh'}}>a</div>
+          <div className="absolute opacity-0" ref={ (divElement) => { this.divElement = divElement } } style={{height: '25vh'}}>a</div>
           <div className="transition-all duration-700" ref={this._scrollContainer} style={{transform: 'translate(0, 0)'}}>
             {React.Children.map(this.props.children, (child, index) => (
               React.cloneElement(child, {
