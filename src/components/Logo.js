@@ -53,6 +53,7 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
      + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-44 h-44 landscape-sm:w-44 landscape-sm:h-44 md:w-64 md:h-64");
   const logoClass = "absolute top-1/2 left-1/2 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-full transition-all duration-700 "
    + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-24 h-24 landscape-sm:w-24 landscape-sm:h-24 md:w-28 md:h-28");
+  
   return (
     <div className={parentClass} style={parentStyle} onClick={onClick}>
       <div className={containerClass} style={containerStyle}>

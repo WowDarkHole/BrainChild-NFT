@@ -1,9 +1,10 @@
 import React, { forwardRef, useEffect, useState } from 'react';
 
+import VerticalSlider from './VerticalScroll';
 import { usePrevious } from './usePrevious';
 import isMobileDevice from '../utils/is-mobile';
 
-const Scrollbar = forwardRef(({scroll, halfHeight}, ref) => {
+const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
 
   const texts = [
     'Scroll',
@@ -51,6 +52,25 @@ const Scrollbar = forwardRef(({scroll, halfHeight}, ref) => {
     }, 700)
   }, [slide, prevSlide]);
 
+  const maxScroll = ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+ref.containerRefs[2].current?.clientHeight+3*halfHeight;
+
+  const [scrollValue, setScrollValue] = useState(100);
+
+  const handleChange = (event, value) => {
+    setScrollValue(value);
+  }
+
+  useEffect(() => {
+    let value = (1-scroll/maxScroll)*100;
+    if(isNaN(value)) value = 100;
+    setScrollValue(value);
+  }, [scroll, onScroll, maxScroll])
+
+  useEffect(() => {
+    const value = Math.min((100-scrollValue)*maxScroll/100, maxScroll);
+    onScroll(value);
+  }, [scrollValue, onScroll, maxScroll]);
+
   let prevTitle = slide-animationStart;
   if(prevTitle > 3) prevTitle = 3;
   if(prevTitle < 0) prevTitle = 0;
@@ -63,8 +83,13 @@ const Scrollbar = forwardRef(({scroll, halfHeight}, ref) => {
             <div className={"scrollbar-title w-full duration-1000 "+(animationStart !== 0 ? "transition-all" : "transition-none")} style={(animationStart !== 0 ? {} : {marginLeft: '-2.45rem'})}>{texts[slide]}</div>
             <div className={"scrollbar-title w-full duration-1000 "+(animationStart !== 0 ? "transition-all": "transition-none")}>{texts[prevTitle]}</div>
           </div>
-          <div className="relative h-36 w-px bg-gray-500 mx-auto">
-            <embed className="absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000" style={{top: 2.4*slide+'rem'}} src="/assets/scroll_thumb.svg"/>
+          <div className="relative h-36 mx-auto">
+            <VerticalSlider
+              orientation="vertical"
+              value={scrollValue}
+              onChange={handleChange}
+              track={false}
+            />
           </div>
           <embed className={arrowClass} style={arrowStyle} src="/assets/scroll_arrow.svg"/>
         </div>

@@ -47,7 +47,7 @@ const Roadmap = forwardRef((_, ref) => {
   return (
     <div className="relative min-h-screen flex items-center overflow-x-scroll overflow-y-hidden no-scrollbar mt-screen-1/2" ref={ref.containerRef} onMouseDown={onMouseDown}>
       <div className="flex py-24 m-auto w-full" ref={ref.contentRef}>
-        <div className="relative w-full" style={{minWidth: '1024px'}}>
+        <div className="relative w-full" id="scroll2" style={{minWidth: '1024px'}}>
           <embed className="pointer-events-none m-auto w-full" src="/assets/image_roadmap_timeline.svg"/>
           <h1 className="absolute left-1/2 top-full transform -translate-y-1/2 translate-x-1/4" data-splitting>
             <div className="h-full w-full bg-cover rounded-full" style={{backgroundImage: 'url(/assets/image_ethereum_clock.gif)', clipPath: 'circle(49%)'}}>

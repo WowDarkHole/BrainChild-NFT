@@ -5,6 +5,8 @@ import Slide from './Slide';
 import Scrollbar from './Scrollbar';
 import Logo from './Logo';
 import isMobileDevice from '../utils/is-mobile';
+// import Scroll from './Scroll';
+// import {Scrollbar} from 'smooth-scrollbar-react';
 
 const scrollMode = {
   FULL_PAGE: 'full-page',
@@ -27,9 +29,11 @@ export default class FullPage extends React.Component {
     this._touchSensitivity = 5;
     this._touchStart = 0;
     this._isMobile = null;
+    this._scrollbar = null;
     this._container = React.createRef();
     this._parent = React.createRef();
     this._goingUp = false;
+    this._scrollContainer = React.createRef();
     this._reference = React.createRef();
     this._refs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
     this._contentRefs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
@@ -101,9 +105,7 @@ export default class FullPage extends React.Component {
   onResize = () => {
     this.updateSlides();
 
-    this.divElement.style.display = 'block';
     const halfHeight = this.divElement.clientHeight;
-    this.divElement.style.display = 'hidden';
 
     const scrollbarWidth =  window.innerWidth - this._parent.current?.clientWidth;
     this.setState({
@@ -135,21 +137,24 @@ export default class FullPage extends React.Component {
     }
   }
 
-  onScroll = (evt) => {
-    evt.preventDefault();
-    if (this.props.scrollMode !== scrollMode.FULL_PAGE) {
-      return;
-    }
-    if (this._isScrollPending) {
-      return;
-    }
-    const currentScrollY = evt.target.scrollTop;
+  onScroll = (scrollbar, scrollStatus) => {
+    const currentScrollY = scrollbar.target.scrollTop;
     this.setState({scroll: currentScrollY});
+  }
+
+  onScrollbar = (value) => {
+    if(Math.abs(value-this._parent.current.scrollTop) < 1) return;
+    this._parent.current.scrollTop = value;
   }
 
   scrollTo = () => {
     this._parent.current.scrollTop = 0;
+    // this._scrollbar.scrollTo(0, 0, 700);
     this.setState({scroll: 0});
+  }
+
+  setScrollbar = (scrollbar) => {
+    this._scrollbar = scrollbar;
   }
 
   getSlidesCount = () => this.state.slidesCount
@@ -202,16 +207,31 @@ export default class FullPage extends React.Component {
     const filledPatternClass = "app-main transition-all duration-700 "+(isMobileDevice() ? "" : "") + (visiblePattern === 0 ? "opacity-100": "opacity-0");
     const outlinedPatterClass = "app-main transition-all duration-700 "+(isMobileDevice() ? "" : "") + (visiblePattern === 1 ? "opacity-100": "opacity-0");
     return (
-      <div style={{ height: this.state.height, overflowY: 'auto' }} onScroll={this.onScroll} ref={this._parent}>
-        <div className="absolute hidden" ref={ (divElement) => { this.divElement = divElement } } style={{height: '50vh'}}>a</div>
+      <>
+        <div className="transition-all duration-100"
+          style={{ height: this.state.height, overflowY: 'auto' }}
+          onScroll={this.onScroll}
+          ref={this._parent}
+          id="my-scrollbar"
+        >
+          <div className="absolute opacity-0" ref={ (divElement) => { this.divElement = divElement } } style={{height: '50vh'}}>a</div>
+          <div className="transition-all duration-700" ref={this._scrollContainer} style={{transform: 'translate(0, 0)'}}>
+            {React.Children.map(this.props.children, (child, index) => (
+              React.cloneElement(child, {
+                ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index]}
+              })
+            ))}
+          </div>
+          {/* <Scroll onScroll={this.onScroll} setScrollbar={this.setScrollbar}/> */}
+        </div>
         <div className={filledPatternClass} style={{backgroundImage:'url(/assets/resource_landing_image1.svg)'}}></div>
         <div className={outlinedPatterClass} style={{backgroundImage:'url(/assets/resource_landing_image4.svg)'}}></div>
-        {React.Children.map(this.props.children, (child, index) => (
-          React.cloneElement(child, {
-            ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index]}
-          })
-        ))}
-        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block" halfHeight={this.state.halfHeight} scroll={this.state.scroll} ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}/>
+        <Scrollbar className="fixed bottom-20 left-16 hidden sm:block"
+          halfHeight={this.state.halfHeight}
+          scroll={this.state.scroll}
+          onScroll={this.onScrollbar}
+          ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}
+        />
         <Logo className="top-0 left-1/2"
           onClick={this.scrollTo}
           scroll={this.state.scroll}
@@ -219,7 +239,7 @@ export default class FullPage extends React.Component {
           scrollbarWidth={this.state.scrollbarWidth}
           ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}
         />
-      </div>
+      </>
     );
   }
 }
