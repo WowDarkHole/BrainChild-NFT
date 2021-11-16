@@ -30,6 +30,9 @@ const VerticalSlider = styled((props) => {
     '&:before': {
       display: 'none',
     },
+    '&:focus, &:hover, &.Mui-focusVisible': {
+      boxShadow: 'none',
+    },
   },
   '& .MuiSlider-valueLabel': {
     lineHeight: 1.2,

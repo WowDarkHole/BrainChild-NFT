@@ -78,5 +78,16 @@ h1 {
       writing-mode: vertical-lr;
       -webkit-font-smoothing: antialiased;
     }
+
+    .roadmap-toolip {
+      font-size: 18px;
+      background: -webkit-linear-gradient(180deg, #FFC6CE 26.22%, #64D6EE 97.07%);
+      text-align: left;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Sora';
+      font-weight: 600;
+      -webkit-font-smoothing: antialiased;
+    }
   }
 }

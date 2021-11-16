@@ -14,11 +14,11 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
     slide = 3;
   }
 
-  const parentClass = "absolute pointer-events-auto cursor-pointer transform -translate-x-1/2 transition-all duration-700 -translate-y-1/2 " + className;
+  const parentClass = "absolute cursor-pointer transform -translate-x-1/2 transition-all duration-700 -translate-y-1/2 " + className + (slide === 0 || slide === 3 ? " pointer-events-none": " pointer-events-auto");
 
   const parentStyle = {top: '50px', '--tw-translate-x': 'calc(-50% - '+scrollbarWidth/2+'px)'};
   const containerStyle= {width: '11rem', height: '11rem'}
-  if(window.innerWidth > 1024) containerStyle.width = containerStyle.height = '16rem';
+  if(window.innerWidth > 768) containerStyle.width = containerStyle.height = '16rem';
 
   if(scroll < 5) {
     parentStyle.top = ref.containerRefs[0].current?.clientHeight - ref.contentRefs[0].current?.clientHeight;
@@ -29,7 +29,7 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
       parentStyle.top = fromPos-(fromPos-50)*percent;
 
       let value = (11-7*percent)+'rem';
-      if(window.innerWidth > 1024) value = (16-12*percent)+'rem';
+      if(window.innerWidth > 768) value = (16-12*percent)+'rem';
       containerStyle.width = containerStyle.height = value;
     }
   } else if (scroll > ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+ref.containerRefs[2].current?.clientHeight+3*halfHeight-20) {
@@ -39,7 +39,7 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
       parentStyle.top = 50-(50-toPos)*percent;
 
       let value = (4+7*percent)+'rem';
-      if(window.innerWidth > 1024) value = (4+12*percent)+'rem';
+      if(window.innerWidth > 768) value = (4+12*percent)+'rem';
       containerStyle.width = containerStyle.height = value;
     }
   } else {
@@ -50,14 +50,14 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
   if(!parentStyle.top) parentStyle.top = 0;
 
   const containerClass = "relative flex items-center justify-center transition-all duration-700 "
-     + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-44 h-44 landscape-sm:w-44 landscape-sm:h-44 md:w-64 md:h-64");
+     + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-44 h-44 md:w-64 md:h-64");
   const logoClass = "absolute top-1/2 left-1/2 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-full transition-all duration-700 "
-   + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-24 h-24 landscape-sm:w-24 landscape-sm:h-24 md:w-28 md:h-28");
+   + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-24 h-24 md:w-28 md:h-28");
   
   return (
     <div className={parentClass} style={parentStyle} onClick={onClick}>
       <div className={containerClass} style={containerStyle}>
-        <div className="p-1 sm:p-2 rounded-full" style={{backgroundColor: '#22262A'}}>
+        <div className="p-0 sm:p-1 rounded-full" style={{backgroundColor: '#22262A'}}>
           <img className="animate-spin-slow w-full h-full" src="/assets/text_hero_brainchild.png" alt=""/>
         </div>
         <embed className={logoClass}  style={{backgroundColor: '#22262A'}} src="/assets/logo_brain.svg" alt=""/>

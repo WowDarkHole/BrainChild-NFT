@@ -58,7 +58,7 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
 
   const handleChange = (event, value) => {
     setScrollValue(value);
-    const value1 = Math.min((100-scrollValue)*maxScroll/100, maxScroll);
+    const value1 = Math.min((100-value)*maxScroll/100, maxScroll);
     onScroll(value1);
   }
 
