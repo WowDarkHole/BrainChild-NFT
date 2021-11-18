@@ -15,10 +15,10 @@ const ConceptDialog = ({onHide}) => {
         <p className="overlay-title">Redeem</p>
         <div className="grid grid-cols-1 sm:grid-cols-5 items-center justify-items-center mt-10">
           <div className="col-span-1 sm:col-span-3">
-            <p className="overlay-desc break-all text-justify" style={{textIndent: '5rem'}}>
+            <p className="overlay-desc break-words text-justify" style={{textIndent: '5rem'}}>
               Receive the physical version of your NFT product when you interact with our Redeem smart contract. Connect your wallet to see if your NFT is available to be redeemed or on cooldown, get it delivered to your home.
             </p>
-            <p className="overlay-desc mt-10 break-all text-justify" style={{textIndent: '5rem'}}>
+            <p className="overlay-desc mt-10 break-words text-justify" style={{textIndent: '5rem'}}>
               Proud owners of Brainchild NFTs will also be able to interact with their NFTs in digital galleries, virtual worlds and metaverses. 3D models will be integrated in major blockchain-based virtual worlds like Decentraland, Sandbox, Cryptovoxels and Somnium.
             </p>
           </div>
@@ -27,7 +27,7 @@ const ConceptDialog = ({onHide}) => {
         <p className="overlay-title mt-52">Enhance</p>
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 items-center justify-items-center mt-10 sm:mt-0">
           <div className="col-span-1 sm:col-span-3">
-            <p className="overlay-desc break-all text-justify" style={{textIndent: '5rem'}}>
+            <p className="overlay-desc break-words text-justify" style={{textIndent: '5rem'}}>
               Evolve your NFT to the next level by interacting with our Enhance smart contract. Roll the dice for 5 possible outcomes of enhancement.
             </p>
           </div>
@@ -37,7 +37,7 @@ const ConceptDialog = ({onHide}) => {
         <embed className="sm:p-5 w-full block sm:hidden mt-16" src="/assets/image_concept_overlay_enhance_cards_mobile.svg"/>
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 items-center justify-items-center mt-10 sm:mt-0">
           <div className="col-span-1">
-            <p className="overlay-desc break-all text-justify" style={{textIndent: '5rem'}}>
+            <p className="overlay-desc break-words text-justify" style={{textIndent: '5rem'}}>
               The probability of outcomes is shown by this table.
             </p>
           </div>
@@ -47,7 +47,7 @@ const ConceptDialog = ({onHide}) => {
         <p className="overlay-title mt-32">Participate</p>
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 items-center justify-items-center mt-10 sm:mt-6">
           <div className="col-span-1 sm:col-span-3">
-            <p className="overlay-desc break-all text-justify" style={{textIndent: '5rem'}}>
+            <p className="overlay-desc break-words text-justify" style={{textIndent: '5rem'}}>
               Brainchild NFT owners are welcomed to our private community events, gain an edge in future drops, and access real-world privilege (TBC). Charred NFT holders will be given priority access to future mints.
             </p>
           </div>
@@ -56,7 +56,7 @@ const ConceptDialog = ({onHide}) => {
         <p className="overlay-title mt-32">Vote</p>
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 items-center justify-items-center mt-10 sm:mt-0">
           <div className="col-span-1 sm:col-span-3">
-            <p className="overlay-desc break-all text-justify" style={{textIndent: '5rem'}}>
+            <p className="overlay-desc break-words text-justify" style={{textIndent: '5rem'}}>
               Suggest and vote on the subsequent NFT product drop, designs, features and shape the future of Brainchild project.
             </p>
           </div>
