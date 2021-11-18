@@ -10,7 +10,7 @@ const Landing = () => {
   window.devicePixelRatio = 1.1;
   return (
     <>
-      <embed className="app-bg" src="/assets/resource_landing_image3.jpg"/>
+      <embed className="app-bg" src="/assets/resource_landing_image3.webp"/>
       <div className="App">
         <FullPage>
           <Hero/>
