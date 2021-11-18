@@ -280,9 +280,7 @@ export default class FullPage extends React.Component {
             )
           }
         </div>
-        {
-          this.state.modalVisible && <ConceptDialog onHide={this.hideModal}/>
-        }
+        <ConceptDialog onHide={this.hideModal} visible={this.state.modalVisible}/>
       </>
     );
   }

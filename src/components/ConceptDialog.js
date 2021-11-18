@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ConceptDialog = ({onHide}) => {
+const ConceptDialog = ({onHide, visible}) => {
   return (
-    <div className="absolute top-0 left-0 w-full min-h-full py-10 sm:py-20 px-10 sm:px-10 md:px-16 lg:px-32 overflow-hidden" style={{background: 'linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%)'}}>
+    <div className={"absolute top-0 left-0 w-full min-h-full py-10 sm:py-20 px-10 sm:px-10 md:px-16 lg:px-32 overflow-hidden "+(visible ? "block": "hidden")} style={{background: 'linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%)'}}>
       <div className="container mx-auto">
         <div className="w-full cursor-pointer">
           <div className="ml-auto -mb-16 w-max hidden sm:block" onClick={onHide}>
