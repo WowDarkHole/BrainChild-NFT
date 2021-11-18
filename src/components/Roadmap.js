@@ -29,7 +29,7 @@ const Roadmap = forwardRef((_, ref) => {
           </div>
           <h1 className="absolute left-1/2 top-full transform -translate-y-1/2 translate-x-3/4">
             <div className="h-full w-full bg-cover rounded-full" style={{backgroundImage: 'url(/assets/image_ethereum_clock.gif)', clipPath: 'circle(49%)'}}>
-              <div className="h-full w-full p-1">
+              <div className="h-full w-full p-1 animate-spin-slow">
                 <embed className="h-full w-full" src="/assets/launch_time.svg"/>
               </div>
             </div>

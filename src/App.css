@@ -122,6 +122,25 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.overlay-title {
+  font-family: Sora;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 46px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.overlay-desc {
+  font-family: 'Cormorant Garamond';
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0em;
+}
+
 /* Tooltip container */
 .tooltip {
   position: relative;
@@ -132,22 +151,21 @@
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  min-width: 120px;
+  width: 160px;
   background: linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%);
   color: #22262A;
   text-align: center;
   font-family: 'Sora';
   font-weight: bold;
-  font-size: 18px;
+  font-size: 15px;
   padding: 5px 10px;
   border-radius: 12px;
-
   /* Position the tooltip text */
   position: absolute;
   z-index: 1;
   bottom: 145%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -80px;
 
   /* Fade in tooltip */
   opacity: 0;

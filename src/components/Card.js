@@ -29,8 +29,8 @@ const Card = ({type}) => {
       <div className="absolute inline-flex flex-col justify-between h-full w-full items-start p-12 top-0 left-0">
         <embed className="max-w-full invisible group-hover:visible transition duration-500 transform scale-125 group-hover:scale-100 origin-top-left translate-y-3 group-hover:translate-y-0" src={titleUrls[type]} alt=""/>
         <div className="max-w-full">
-          <embed className="my-8 max-w-full invisible group-hover:visible transform duration-500 translate-y-10 group-hover:translate-y-0" src={descUrls[type]}/>
-          <embed className="max-w-full transition duration-500 opacity-0 group-hover:opacity-100" src="/assets/btn_concept_learnmore.svg"/>
+          <embed className="mt-8 max-w-full invisible group-hover:visible transform duration-500 translate-y-10 group-hover:translate-y-0" src={descUrls[type]}/>
+          {/* <embed className="max-w-full transition duration-500 opacity-0 group-hover:opacity-100" src="/assets/btn_concept_learnmore.svg"/> */}
         </div>
       </div>
       <embed className="w-full transition-clip-path duration-500 circle-clip-36 group-hover:circle-clip-0" src={backgroundUrls[type]}/>

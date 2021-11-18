@@ -5,6 +5,7 @@ import Slide from './Slide';
 import Scrollbar from './Scrollbar';
 import Logo from './Logo';
 import isMobileDevice from '../utils/is-mobile';
+import ConceptDialog from './ConceptDialog';
 // import Scroll from './Scroll';
 // import {Scrollbar} from 'smooth-scrollbar-react';
 
@@ -43,6 +44,7 @@ export default class FullPage extends React.Component {
       scroll: 0,
       slidesCount: FullPage.getChildrenCount(this.props.children),
       scrollbarWidth: 0,
+      modalVisible: false,
     };
 
     this.getVisiblePattern = this.getVisiblePattern.bind(this);
@@ -202,7 +204,32 @@ export default class FullPage extends React.Component {
     return 1;
   }
 
+  getSlideId = () => {
+    let slide = 0;
+
+    if (this.state.scroll < this._refs[0].current?.clientHeight) {
+      slide = 0;
+    } else if (this.state.scroll < this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight-this.state.halfHeight) {
+      slide = 1;
+    } else if(this.state.scroll < this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+3*this.state.halfHeight-20){
+      slide = 2;
+    } else {
+      slide = 3;
+    }
+
+    return slide;
+  }
+
+  showModal = () => {
+    this.setState({modalVisible: true});
+  }
+
+  hideModal = () => {
+    this.setState({modalVisible: false});
+  }
+
   render() {
+    const slideId = this.getSlideId();
     const visiblePattern = this.getVisiblePattern();
     const filledPatternClass = "app-main transition-all duration-700 "+(isMobileDevice() ? "" : "") + (visiblePattern === 0 ? "opacity-100": "opacity-0");
     const outlinedPatterClass = "app-main transition-all duration-700 "+(isMobileDevice() ? "" : "") + (visiblePattern === 1 ? "opacity-100": "opacity-0");
@@ -239,6 +266,23 @@ export default class FullPage extends React.Component {
           scrollbarWidth={this.state.scrollbarWidth}
           ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}
         />
+        <div className={"absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 transition-all cursor-pointer duration-500 "+(slideId === 1 ? "block": "hidden")+(isMobileDevice() ? " bottom-0" : " top-1/2")}
+          onClick={this.showModal}
+        >
+          {
+            isMobileDevice() && <embed className="w-full h-full pointer-events-none" src="/assets/btn_concept_learnmore.svg"/>
+          }
+          {
+            !isMobileDevice() && (
+              <div className="w-24 h-24 rounded-full p-1 pointer-events-none" style={{background: 'linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%)'}}>
+                <embed className="w-full h-full animate-spin-slow pointer-events-none" src="/assets/text_concept_learnmore_circular.svg"/>
+              </div>
+            )
+          }
+        </div>
+        {
+          this.state.modalVisible && <ConceptDialog onHide={this.hideModal}/>
+        }
       </>
     );
   }
