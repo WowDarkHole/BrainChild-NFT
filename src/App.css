@@ -122,6 +122,26 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.hero-desc {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-title {
+  font-family: Sora;
+  font-style: normal;
+  font-weight: 800;
+  background: linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .overlay-title {
   font-family: Sora;
   font-size: 40px;
