@@ -15,13 +15,13 @@ const Hero = forwardRef((_, ref) => {
           </div>
           <div className="w-full nft-level-message-bar sticky bottom-0">
             <span className="inline-block animate-scroll-left3">
-              &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse
+              &emsp;Elevate your experience across physical, digital and crypto space. &emsp;Set yourself apart from traditional luxury watch, furniture and wearables. &emsp;Immerse yourself in the new age of luxury. &emsp;Elevate your experience across physical, digital and crypto space. &emsp;Set yourself apart from traditional luxury watch, furniture and wearables. &emsp;Immerse yourself in the new age of luxury.
             </span>
             <span className="inline-block animate-scroll-left1">
-              &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse
+              &emsp;Elevate your experience across physical, digital and crypto space. &emsp;Set yourself apart from traditional luxury watch, furniture and wearables. &emsp;Immerse yourself in the new age of luxury. &emsp;Elevate your experience across physical, digital and crypto space. &emsp;Set yourself apart from traditional luxury watch, furniture and wearables. &emsp;Immerse yourself in the new age of luxury.
             </span>
             <span className="inline-block animate-scroll-left2" style={{animationDelay:'20s'}}>
-              &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse &emsp;NFTs that are not just limited to the cryptoverse
+              &emsp;Elevate your experience across physical, digital and crypto space. &emsp;Set yourself apart from traditional luxury watch, furniture and wearables. &emsp;Immerse yourself in the new age of luxury. &emsp;Elevate your experience across physical, digital and crypto space. &emsp;Set yourself apart from traditional luxury watch, furniture and wearables. &emsp;Immerse yourself in the new age of luxury.
             </span>
           </div>
         </div>
