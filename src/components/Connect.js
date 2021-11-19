@@ -22,27 +22,27 @@ const Connect = forwardRef((_, ref) => {
             <embed className={"w-72 sm:w-96 "+(isMobileDevice() ? "md:hidden": "md:hidden")} src="/assets/text_connect_hop_mobile.svg"/>
             <embed className={"hidden md:block md:w-120 lg:w-140 xl:w-160"+(isMobileDevice() ? "": "")} src="/assets/text_connect_hop.svg"/>
             <div className={"grid grid-rows-2 grid-cols-3 justify-items-center gap-y-9 md:grid-rows-1 md:grid-cols-6 justify-between items-center mt-10 mb-15 md:mt-20 md:mb-20 min-w-80 sm:min-w-120 md:min-w-180 landscape:px-0"+(isMobileDevice() ? "" : "")}>
-              <a style={{height:'max-content'}} className="tooltip" href="https://discord.gg/7S55rjvxm3" target="_blank" rel="noreferrer">
+              <a style={{height:'max-content'}} className="tooltip" href="https://discord.gg/7S55rjvxm3" rel="external">
                 <embed className={"w-8 pointer-events-none "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_discord.svg"/>
                 <span className="tooltiptext">DISCORD</span>
               </a>
-              <a style={{height:'max-content'}} className="tooltip" href="https://www.instagram.com/brainchildnft/" target="_blank" rel="noreferrer">
+              <a style={{height:'max-content'}} className="tooltip" href="https://www.instagram.com/brainchildnft/" rel="external">
                 <embed className={"w-8 pointer-events-none "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_instagram.svg"/>
                 <span className="tooltiptext">INSTAGRAM</span>
               </a>
-              <a style={{height:'max-content'}} className="tooltip" href="https://twitter.com/BrainchildNFT" target="_blank" rel="noreferrer">
+              <a style={{height:'max-content'}} className="tooltip" href="https://twitter.com/BrainchildNFT" rel="external">
                 <embed className={"w-8 pointer-events-none "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_twitter.svg"/>
                 <span className="tooltiptext">TWITTER</span>
               </a>
-              <a style={{height:'max-content'}} className="tooltip" href="https://t.me/joinchat/KxQp5cc1K35lM2Jl" target="_blank" rel="noreferrer">
+              <a style={{height:'max-content'}} className="tooltip" href="https://t.me/joinchat/KxQp5cc1K35lM2Jl" rel="external">
                 <embed className={"w-8 pointer-events-none "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_telegram_announcement.svg"/>
                 <span className="tooltiptext">TELEGRAM ANNOUNCEMENT</span>
               </a>
-              <a style={{height:'max-content'}} className="tooltip" href="https://t.me/joinchat/kSE3qhHOpMRkY2E1" target="_blank" rel="noreferrer">
+              <a style={{height:'max-content'}} className="tooltip" href="https://t.me/joinchat/kSE3qhHOpMRkY2E1" rel="external">
                 <embed className={"w-8 pointer-events-none "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_telegram_chat.svg"/>
                 <span className="tooltiptext">TELEGRAM CHAT</span>
               </a>
-              <a style={{height:'max-content'}} className="tooltip" href="https://www.reddit.com/r/brainchildNFT/" target="_blank" rel="noreferrer">
+              <a style={{height:'max-content'}} className="tooltip" href="https://www.reddit.com/r/brainchildNFT/" rel="external">
                 <embed className={"w-8 pointer-events-none "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_telegram.svg"/>
                 <span className="tooltiptext">REDDIT</span>
               </a>
