@@ -48,6 +48,7 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',
+        'spin-normal': 'spin 10s linear infinite',
         'scroll-left1': 'scrolling-left1 40s linear infinite',
         'scroll-left2': 'scrolling-left2 40s linear infinite',
         'scroll-left3': 'scrolling-left3 40s 1 linear forwards',

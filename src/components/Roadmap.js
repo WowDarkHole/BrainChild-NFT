@@ -21,7 +21,7 @@ const Roadmap = forwardRef((_, ref) => {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center overflow-x-scroll overflow-y-hidden no-scrollbar mt-screen-1/4" ref={ref.containerRef} onMouseDown={onMouseDown}>
+    <div className="relative min-h-screen flex items-center overflow-x-scroll overflow-y-hidden no-scrollbar mt-screen-1/4 select-none" ref={ref.containerRef} onMouseDown={onMouseDown}>
       <div className="flex py-24 m-auto w-full" ref={ref.contentRef}>
         <div className="relative w-full" id="scroll2" style={{minWidth: '1024px'}}>
           <div onMouseMove={onMouseMove} onMouseOut={() => setIsHover(false)}>

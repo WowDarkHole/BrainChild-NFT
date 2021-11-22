@@ -236,7 +236,7 @@ export default class FullPage extends React.Component {
     return (
       <>
         <div className="transition-all duration-100"
-          style={{ height: this.state.height, overflowY: 'auto' }}
+          style={{ height: this.state.height, overflowY: this.state.modalVisible ? 'hidden' : 'auto' }}
           onScroll={this.onScroll}
           ref={this._parent}
           id="my-scrollbar"
@@ -266,16 +266,20 @@ export default class FullPage extends React.Component {
           scrollbarWidth={this.state.scrollbarWidth}
           ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}
         />
-        <div className={"absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 transition-all cursor-pointer duration-500 "+(slideId === 1 ? "block": "hidden")+(isMobileDevice() ? " bottom-0" : " top-1/2")}
+        <div className={"absolute transform transition-all cursor-pointer duration-500 "+(slideId === 1 ? "block": "hidden")+(isMobileDevice() ? " bottom-0 right-0" : " top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2")}
           onClick={this.showModal}
         >
           {
-            isMobileDevice() && <embed className="w-full h-full pointer-events-none" src="/assets/btn_concept_learnmore.svg"/>
+            isMobileDevice() && <div className="relative">
+              <embed className="w-full h-full pointer-events-none" src="/assets/btn_concept_learnmore.svg"/>
+              <img className="absolute w-32 -bottom-16 right-2" style={{zIndex: -1}} src="/assets/btn_concept_overlay_icon.webp" alt=""/>
+            </div>
           }
           {
             !isMobileDevice() && (
-              <div className="w-24 h-24 rounded-full p-1 pointer-events-none" style={{background: 'linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%)'}}>
-                <embed className="w-full h-full animate-spin-slow pointer-events-none" src="/assets/text_concept_learnmore_circular.svg"/>
+              <div className="w-40 h-40 rounded-full p-1 pointer-events-none" style={{background: 'linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%)', clipPath: 'circle(50%)'}}>
+                <img className="absolute w-24 top-16 left-1/2 transform -translate-x-1/2" src="/assets/btn_concept_overlay_icon.webp" alt=""/>
+                <embed className="w-full h-full animate-spin-normal pointer-events-none" src="/assets/text_concept_learnmore_circular.svg"/>
               </div>
             )
           }

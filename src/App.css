@@ -5,7 +5,6 @@
 
 #root {
   position: relative;
-  user-select: none;
 }
 
 .App {
@@ -154,21 +153,19 @@
 
 .overlay-title {
   font-family: Sora;
-  font-size: 40px;
   font-style: normal;
   font-weight: 800;
-  line-height: 46px;
   letter-spacing: 0em;
   text-align: left;
+  color: #22262A;
 }
 
 .overlay-desc {
   font-family: 'Cormorant Garamond';
-  font-size: 20px;
   font-style: italic;
   font-weight: 600;
-  line-height: 28px;
   letter-spacing: 0em;
+  color: #22262A;
 }
 
 /* Tooltip container */
