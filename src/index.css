@@ -80,6 +80,20 @@ h1 {
       -webkit-font-smoothing: antialiased;
     }
 
+    .gradient-text {
+      background: linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .empty-gradient-text {
+      background: linear-gradient(90.86deg, #FFFFFF 26.22%, #FFFFFF 97.07%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .roadmap-toolip {
       font-size: 18px;
       background: -webkit-linear-gradient(180deg, #FFC6CE 26.22%, #64D6EE 97.07%);

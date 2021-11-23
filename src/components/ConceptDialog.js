@@ -1,19 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ConceptDialog = ({onHide, visible}) => {
+  const [scrollUp, setScrollUp] = useState(true);
+  const [lastScroll, setLastScroll] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      let value = true;
+      if(currentScroll > lastScroll) value = false;
+      setScrollUp(value);
+      setLastScroll(currentScroll);
+    });
+  }, [lastScroll]);
+
   return (
     <div className={"absolute top-0 left-0 w-full pt-24 sm:p-16 min-h-full overflow-hidden "+(visible ? "block": "hidden")}>
-      <div className="py-10 sm:py-20 px-10 sm:px-10 md:px-16 lg:px-32 sm:border-2 border-gray-600" style={{background: 'linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%)'}}>
-        <div className="container mx-auto">
-          <div className="w-full cursor-pointer">
-            <div className="ml-auto -mb-16 w-max hidden sm:block" onClick={onHide}>
-              <embed className="w-28 h-28 md:w-36 md:h-36 pointer-events-none" src="/assets/btn_concept_overlay_close.svg" />
-            </div>
-            <div className="mx-auto mb-16 w-max block sm:hidden" onClick={onHide}>
-              <embed className="w-18 h-18 pointer-events-none" src="/assets/btn_concept_overlay_close_mobile.svg" />
+      <div className={"fixed top-0 left-0 w-full pt-24 sm:p-16 cursor-pointer "+(scrollUp ? "opacity-100": "opacity-0 pointer-events-none")}>
+        <div className="py-10 sm:py-20 px-10 sm:px-10 md:px-16 lg:px-32">
+          <div className="relative group ml-auto -mb-16 w-max hidden sm:block" onClick={onHide}>
+            <embed className="w-28 h-28 md:w-36 md:h-36 group-hover:animate-none animate-spin-normal-reverse pointer-events-none" src="/assets/text_concept_overlay_btn.svg" />
+            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="leading-none flex items-center justify-center transform
+                            transition-all duration-300 ease-out border border-black rotate-0 group-hover:-rotate-90 origin-center
+                            group-hover:bg-black rounded-full w-18 h-18 md:w-18 md:h-18 group-hover:w-22 group-hover:h-22 pointer-events-none">
+                <span className="text-6xl group-hover:text-8xl group-hover:font-semi-bold transition-scaling duration-300 ease-out transform -rotate-45 group-hover:gradient-text" style={{fontFamily: 'ui-rounded'}}>+</span>
+              </div>
             </div>
           </div>
-          <p className="overlay-title text-5xl sm:text-7xl">Redeem</p>
+          <div className="relative w-22 h-22 group mx-auto mb-16 w-max block sm:hidden" onClick={onHide}>
+            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="leading-none flex items-center justify-center transform
+                            transition-all duration-300 ease-out border border-black rotate-0 group-hover:-rotate-90 origin-center
+                            group-hover:bg-black rounded-full w-18 h-18 md:w-18 md:h-18 group-hover:w-22 group-hover:h-22 pointer-events-none">
+                <span className="text-6xl group-hover:text-8xl group-hover:font-semi-bold transition-scaling duration-300 ease-out transform -rotate-45 group-hover:gradient-text" style={{fontFamily: 'ui-rounded'}}>+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="py-10 sm:py-20 px-10 sm:px-10 md:px-16 lg:px-32 sm:border-2 border-gray-600" style={{background: 'linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%)'}}>
+        <div className="container mx-auto">
+          <p className="overlay-title text-5xl sm:text-7xl mt-32 sm:mt-16">Redeem</p>
           <div className="grid grid-cols-1 sm:grid-cols-5 items-center justify-items-center mt-10">
             <div className="col-span-1 sm:col-span-3">
               <p className="overlay-desc break-words text-left text-4xl sm:text-4xl leading-snug sm:leading-snug" style={{textIndent: '5rem'}}>
