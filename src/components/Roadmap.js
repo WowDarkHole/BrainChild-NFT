@@ -29,7 +29,10 @@ const Roadmap = forwardRef((_, ref) => {
           </div>
           <h1 className="absolute left-1/2 top-full transform -translate-y-1/2 translate-x-3/4">
             <div className="h-full w-full relative bg-cover rounded-full" style={{clipPath: 'circle(49%)'}}>
-              <video controls={false} autoPlay={true} loop={true} name="media"><source src="/assets/image_ethereum_clock.webm" type="video/webm"/></video>
+              <video id="vid" controls={false} autoPlay={true} loop={true} name="media" playsInline={true} muted={true}>
+                <source src="/assets/image_ethereum_clock.webm" type="video/webm"/>
+                <source src="/assets/image_ethereum_clock.mp4" type="video/webm"/>
+              </video>
               <div className="h-full w-full p-1 absolute top-0 left-0 animate-spin-slow">
                 <embed className="h-full w-full" src="/assets/launch_time.svg"/>
               </div>
