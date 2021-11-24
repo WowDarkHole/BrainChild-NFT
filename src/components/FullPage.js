@@ -235,7 +235,7 @@ export default class FullPage extends React.Component {
     const outlinedPatterClass = "app-main transition-all duration-700 "+(isMobileDevice() ? "" : "") + (visiblePattern === 1 ? "opacity-100": "opacity-0");
     return (
       <>
-        <div className="transition-all duration-100"
+        <div className="transition-all duration-100 overflow-x-hidden"
           style={{ height: this.state.height, overflowY: this.state.modalVisible ? 'hidden' : 'auto' }}
           onScroll={this.onScroll}
           ref={this._parent}
@@ -270,9 +270,9 @@ export default class FullPage extends React.Component {
           onClick={this.showModal}
         >
           {
-            isMobileDevice() && <div className="relative">
-              <embed className="w-full h-full pointer-events-none" src="/assets/btn_concept_learnmore.svg"/>
-              <img className="absolute w-32 -bottom-16 right-2" style={{zIndex: -1}} src="/assets/btn_concept_overlay_icon.webp" alt=""/>
+            isMobileDevice() && <div className="relative overflow-y-hidden h-22">
+              <embed className="w-40 h-16 mt-8 pointer-events-none" src="/assets/btn_concept_learnmore.svg"/>
+              <img className="absolute w-24 top-0 right-2" style={{zIndex: -1}} src="/assets/btn_concept_overlay_icon.webp" alt=""/>
             </div>
           }
           {

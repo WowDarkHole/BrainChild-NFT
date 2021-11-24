@@ -33,7 +33,7 @@ const Card = ({type}) => {
 
   return (
     <div className="group relative radial-mask" style={{backgroundColor: '#22262A', maxWidth: '24rem', maxHeight: '24rem'}}>
-      <div className="absolute inline-flex flex-col justify-between h-full w-full items-start p-12 top-0 left-0">
+      <div className="absolute inline-flex flex-col justify-between h-full w-full items-start p-6 sm:p-12 top-0 left-0">
         {/* <embed className="max-w-full invisible group-hover:visible transition duration-500 transform scale-125 group-hover:scale-100 origin-top-left translate-y-3 group-hover:translate-y-0" src={titleUrls[type]} alt=""/> */}
         <p className="concept-title text-4xl sm:text-5xl uppercase max-w-full invisible group-hover:visible transition duration-500 transform scale-125 group-hover:scale-100 origin-top-left translate-y-3 group-hover:translate-y-0">
           {type}
