@@ -54,6 +54,9 @@ module.exports = {
         'screen-1/3': '33vh',
         'screen-2/5': '40vh',
       },
+      fontFamily: {
+        'cormorant': 'Cormorant Garamond',
+      },
       animation: {
         'spin-slow': 'spin 20s linear infinite',
         'spin-normal': 'spin 10s linear infinite',

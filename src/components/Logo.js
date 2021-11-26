@@ -14,16 +14,17 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
     slide = 3;
   }
 
-  const parentClass = "absolute cursor-pointer transform -translate-x-1/2 transition-all duration-700 -translate-y-1/2 " + className + (slide === 0 || slide === 3 ? " pointer-events-none": " pointer-events-auto");
+  let parentClass = "absolute cursor-pointer transform -translate-x-1/2 transition-all duration-700 -translate-y-1/2 " + className + (slide === 0 || slide === 3 ? " pointer-events-none": " pointer-events-auto");
 
+  const containerClass = "relative flex items-center justify-center transition-all duration-700 "
+     + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-44 h-44 md:w-64 md:h-64");
   const parentStyle = {top: '50px', '--tw-translate-x': 'calc(-50% - '+scrollbarWidth/2+'px)'};
   const containerStyle= {width: '11rem', height: '11rem'}
   if(window.innerWidth > 768) containerStyle.width = containerStyle.height = '16rem';
-
   if(scroll < 5) {
-    parentStyle.top = ref.containerRefs[0].current?.clientHeight - ref.contentRefs[0].current?.clientHeight;
+    parentStyle.top = ref.contentRefs[0].current?.getBoundingClientRect().top;
   } else if (scroll < ref.containerRefs[0].current?.clientHeight) {
-    const fromPos = ref.containerRefs[0].current?.clientHeight - ref.contentRefs[0].current?.clientHeight;
+    const fromPos = ref.contentRefs[0].current?.getBoundingClientRect().top;
     if(ref.containerRefs[0].current?.clientHeight > 0) {
       const percent = 1;//scroll/ref.containerRefs[0].current?.clientHeight;
       parentStyle.top = fromPos-(fromPos-50)*percent;
@@ -33,7 +34,11 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
       containerStyle.width = containerStyle.height = value;
     }
   } else if (scroll > ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+ref.containerRefs[2].current?.clientHeight+3*halfHeight-20) {
-    const toPos = window.innerHeight+ref.contentRefs[3].current?.clientHeight-ref.containerRefs[3].current?.clientHeight;
+    if(ref.containerRefs[3].current.getBoundingClientRect().top < -1){
+      parentClass = parentClass.replace("transition-all", "");
+      parentClass = parentClass.replace("duration-700", "");
+    }
+    const toPos = ref.contentRefs[3].current?.clientHeight+ref.containerRefs[3].current.getBoundingClientRect().top;
     if(ref.containerRefs[3].current?.clientHeight > 0) {
       const percent = 1;//(scroll-ref.containerRefs[0].current?.clientHeight-ref.containerRefs[1].current?.clientHeight)/ref.containerRefs[2].current?.clientHeight;
       parentStyle.top = 50-(50-toPos)*percent;
@@ -49,8 +54,6 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
 
   if(!parentStyle.top) parentStyle.top = 0;
 
-  const containerClass = "relative flex items-center justify-center transition-all duration-700 "
-     + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-44 h-44 md:w-64 md:h-64");
   const logoClass = "absolute top-1/2 left-1/2 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 p-3 rounded-full transition-all duration-700 "
    + (slide > 0 && slide < 3 ? "w-16 h-16" : "w-24 h-24 md:w-28 md:h-28");
   

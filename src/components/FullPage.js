@@ -38,6 +38,7 @@ export default class FullPage extends React.Component {
     this._reference = React.createRef();
     this._refs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
     this._contentRefs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
+    this._heroRef = React.createRef();
 
     this.state = {
       activeSlide: props.initialSlide,
@@ -245,7 +246,7 @@ export default class FullPage extends React.Component {
           <div className="transition-all duration-700" ref={this._scrollContainer} style={{transform: 'translate(0, 0)'}}>
             {React.Children.map(this.props.children, (child, index) => (
               React.cloneElement(child, {
-                ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index]}
+                ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index], heroRef: this._heroRef}
               })
             ))}
           </div>
