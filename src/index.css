@@ -80,6 +80,11 @@ h1 {
       -webkit-font-smoothing: antialiased;
     }
 
+    .background-blur {
+      background: rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(200px);
+    }
+
     .gradient-text {
       background: linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%);
       background-clip: text;

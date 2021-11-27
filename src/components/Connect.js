@@ -21,7 +21,7 @@ const Connect = forwardRef((_, ref) => {
           <div className={"flex flex-col justify-center items-center h-1/2 min-h-screen-2/5 w-full pb-36 pt-8 "+(isMobileDevice() ? "px-5" : "sm:pb-28 sm:pt-20 px-10 sm:px-10 lg:px-30")} style={{backgroundColor: '#22262A'}}>
             {/* <embed className={"w-72 sm:w-96 "+(isMobileDevice() ? "md:hidden": "md:hidden")} src="/assets/text_connect_hop_mobile.svg"/>
             <embed className={"hidden md:block md:w-120 lg:w-140 xl:w-160"+(isMobileDevice() ? "": "")} src="/assets/text_connect_hop.svg"/> */}
-            <p className="max-w-3xl leading-normal sm:leading-normal md:leading-normal hero-title text-4xl sm:text-5xl md:text-7xl tracking-wide">Hop in on the fun!</p>
+            <p className="max-w-3xl text-center leading-normal sm:leading-normal md:leading-normal hero-title text-4xl sm:text-5xl md:text-7xl tracking-wide">Hop in on the fun!</p>
             <div className={"grid grid-cols-1 grid-rows-6 sm:grid-rows-2 sm:grid-cols-3 justify-items-center gap-y-9 gap-x-0 2xl:gap-x-12 lg:grid-rows-1 lg:grid-cols-6 justify-between items-center mt-10 mb-15 md:mt-20 md:mb-20 min-w-80 sm:min-w-180 md:min-w-240 landscape:px-0"+(isMobileDevice() ? "" : "")}>
               <a className="tooltip" href="https://discord.gg/7S55rjvxm3" rel="external">
                 <embed className={"h-7 pointer-events-none inline "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_discord.svg"/>

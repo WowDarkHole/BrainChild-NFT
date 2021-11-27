@@ -18,6 +18,10 @@ const VerticalSlider = styled((props) => {
 })({
   color: '#52af77',
   // height: 8,
+  '&': {
+    display: 'block',
+    margin: 'auto',
+  },
   '& .MuiSlider-track': {
     border: 'none',
     width: 0.5,

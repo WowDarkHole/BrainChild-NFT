@@ -56,6 +56,7 @@ module.exports = {
       },
       fontFamily: {
         'cormorant': 'Cormorant Garamond',
+        'sora': 'Sora',
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',

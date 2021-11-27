@@ -36,8 +36,20 @@ export default class FullPage extends React.Component {
     this._goingUp = false;
     this._scrollContainer = React.createRef();
     this._reference = React.createRef();
-    this._refs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
-    this._contentRefs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
+    this._refs = [
+      React.createRef(),
+      React.createRef(),
+      React.createRef(),
+      React.createRef(),
+      React.createRef(),
+    ];
+    this._contentRefs = [
+      React.createRef(),
+      React.createRef(),
+      React.createRef(),
+      React.createRef(),
+      React.createRef(),
+    ];
     this._heroRef = React.createRef();
 
     this.state = {
@@ -198,7 +210,7 @@ export default class FullPage extends React.Component {
     if(this.state.scroll < this._refs[0].current?.clientHeight-this._contentRefs[0].current?.clientHeight) {
       return 0;
     }
-    if(this.state.scroll > this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+this._refs[3].current?.clientHeight/2+this.state.halfHeight*1.5) {
+    if(this.state.scroll > this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+this._refs[3].current?.clientHeight+this._refs[4].current?.clientHeight/2+this.state.halfHeight*1.5) {
       return 0;
     }
 
@@ -214,8 +226,10 @@ export default class FullPage extends React.Component {
       slide = 1;
     } else if(this.state.scroll < this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+3*this.state.halfHeight-20){
       slide = 2;
-    } else {
+    } else if(this.state.scroll < this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+this._refs[3].current?.clientHeight+4*this.state.halfHeight-20){
       slide = 3;
+    } else {
+      slide = 4;
     }
 
     return slide;

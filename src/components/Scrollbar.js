@@ -10,6 +10,7 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
     'Scroll',
     'Concept',
     'Roadmap',
+    'Ethclock',
     'Connect',
   ];
 
@@ -22,22 +23,31 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
   if(scroll < 5) {
     arrowStyle.opacity = 1;
   } else if (scroll < ref.containerRefs[0].current?.clientHeight) {
-    if(ref.containerRefs[0].current?.clientHeight > 0) {
-      const percent = 1;//scroll/ref.containerRefs[0].current?.clientHeight;
-      arrowStyle.opacity = 1-percent;
-    }
+    arrowStyle.opacity = 0;
     slide = 0;
-  } else if (scroll < ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+halfHeight) {
-    if(ref.containerRefs[3].current?.clientHeight > 0) {
-      const percent = (scroll-ref.containerRefs[0].current?.clientHeight-ref.containerRefs[1].current?.clientHeight)/ref.containerRefs[2].current?.clientHeight;
-      arrowStyle.opacity = percent;
-    }
+  } else if (scroll < ref.containerRefs[0].current?.clientHeight
+                     +ref.containerRefs[1].current?.clientHeight
+                    +2*halfHeight
+  ) {
+    const percent = (scroll-ref.containerRefs[0].current?.clientHeight-ref.containerRefs[1].current?.clientHeight)/ref.containerRefs[2].current?.clientHeight;
+    arrowStyle.opacity = percent;
     slide = 1;
-  } else if(scroll < ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+ref.containerRefs[2].current?.clientHeight+3*halfHeight-20){
+  } else if(scroll < ref.containerRefs[0].current?.clientHeight
+                    +ref.containerRefs[1].current?.clientHeight
+                    +ref.containerRefs[2].current?.clientHeight
+                    +3*halfHeight-20
+  ){
     arrowStyle.opacity = 0;
     slide = 2;
-  } else {
+  } else if(scroll < ref.containerRefs[0].current?.clientHeight
+                    +ref.containerRefs[1].current?.clientHeight
+                    +ref.containerRefs[2].current?.clientHeight
+                    +ref.containerRefs[3].current?.clientHeight
+                    +4*halfHeight-20
+  ){
     slide = 3;
+  } else {
+    slide = 4;
   }
 
   const [animationStart, setAnimationStart] = useState(0);
@@ -52,7 +62,11 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
     }, 700)
   }, [slide, prevSlide]);
 
-  const maxScroll = ref.containerRefs[0].current?.clientHeight+ref.containerRefs[1].current?.clientHeight+ref.containerRefs[2].current?.clientHeight+3*halfHeight;
+  const maxScroll = ref.containerRefs[0].current?.clientHeight
+                   +ref.containerRefs[1].current?.clientHeight
+                   +ref.containerRefs[2].current?.clientHeight
+                   +ref.containerRefs[3].current?.clientHeight
+                   +4*halfHeight;
 
   const [scrollValue, setScrollValue] = useState(100);
 
@@ -68,13 +82,8 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
     setScrollValue(value);
   }, [scroll, onScroll, maxScroll])
 
-  useEffect(() => {
-    // const value = Math.min((100-scrollValue)*maxScroll/100, maxScroll);
-    // onScroll(value);
-  }, [scrollValue, onScroll, maxScroll]);
-
   let prevTitle = slide-animationStart;
-  if(prevTitle > 3) prevTitle = 3;
+  if(prevTitle > 4) prevTitle = 4;
   if(prevTitle < 0) prevTitle = 0;
 
   return (
