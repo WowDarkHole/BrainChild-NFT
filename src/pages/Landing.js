@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Concept from '../components/Concept';
 import Roadmap from '../components/Roadmap';
 import EthClock from '../components/EthClock';
+import Faq from '../components/Faq';
 import Connect from '../components/Connect';
 import FullPage from '../components/FullPage';
 
@@ -18,6 +19,7 @@ const Landing = () => {
           <Concept/>
           <Roadmap/>
           <EthClock/>
+          <Faq/>
           <Connect/>
         </FullPage>
       </div>

@@ -11,6 +11,7 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
     'Concept',
     'Roadmap',
     'Ethclock',
+    'FAQ',
     'Connect',
   ];
 
@@ -46,8 +47,16 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
                     +4*halfHeight-20
   ){
     slide = 3;
-  } else {
+  } else if(scroll < ref.containerRefs[0].current?.clientHeight
+    +ref.containerRefs[1].current?.clientHeight
+    +ref.containerRefs[2].current?.clientHeight
+    +ref.containerRefs[3].current?.clientHeight
+    +ref.containerRefs[4].current?.clientHeight
+    +5*halfHeight-20
+  ){
     slide = 4;
+  } else {
+    slide = 5;
   }
 
   const [animationStart, setAnimationStart] = useState(0);
@@ -66,7 +75,8 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
                    +ref.containerRefs[1].current?.clientHeight
                    +ref.containerRefs[2].current?.clientHeight
                    +ref.containerRefs[3].current?.clientHeight
-                   +4*halfHeight;
+                   +ref.containerRefs[4].current?.clientHeight
+                   +5*halfHeight;
 
   const [scrollValue, setScrollValue] = useState(100);
 
@@ -83,7 +93,7 @@ const Scrollbar = forwardRef(({scroll, halfHeight, onScroll}, ref) => {
   }, [scroll, onScroll, maxScroll])
 
   let prevTitle = slide-animationStart;
-  if(prevTitle > 4) prevTitle = 4;
+  if(prevTitle > 5) prevTitle = 5;
   if(prevTitle < 0) prevTitle = 0;
 
   return (

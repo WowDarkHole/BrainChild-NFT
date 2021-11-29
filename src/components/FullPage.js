@@ -6,8 +6,6 @@ import Scrollbar from './Scrollbar';
 import Logo from './Logo';
 import isMobileDevice from '../utils/is-mobile';
 import ConceptDialog from './ConceptDialog';
-// import Scroll from './Scroll';
-// import {Scrollbar} from 'smooth-scrollbar-react';
 
 const scrollMode = {
   FULL_PAGE: 'full-page',
@@ -42,8 +40,10 @@ export default class FullPage extends React.Component {
       React.createRef(),
       React.createRef(),
       React.createRef(),
+      React.createRef(),
     ];
     this._contentRefs = [
+      React.createRef(),
       React.createRef(),
       React.createRef(),
       React.createRef(),
@@ -210,7 +210,7 @@ export default class FullPage extends React.Component {
     if(this.state.scroll < this._refs[0].current?.clientHeight-this._contentRefs[0].current?.clientHeight) {
       return 0;
     }
-    if(this.state.scroll > this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+this._refs[3].current?.clientHeight+this._refs[4].current?.clientHeight/2+this.state.halfHeight*1.5) {
+    if(this.state.scroll > this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+this._refs[3].current?.clientHeight+this._refs[4].current?.clientHeight+this._refs[5].current?.clientHeight/2+this.state.halfHeight*1.5) {
       return 0;
     }
 
@@ -228,8 +228,10 @@ export default class FullPage extends React.Component {
       slide = 2;
     } else if(this.state.scroll < this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+this._refs[3].current?.clientHeight+4*this.state.halfHeight-20){
       slide = 3;
-    } else {
+    } else if(this.state.scroll < this._refs[0].current?.clientHeight+this._refs[1].current?.clientHeight+this._refs[2].current?.clientHeight+this._refs[3].current?.clientHeight+this._refs[4].current?.clientHeight+5*this.state.halfHeight-20){
       slide = 4;
+    } else {
+      slide = 5;
     }
 
     return slide;
@@ -274,7 +276,7 @@ export default class FullPage extends React.Component {
           onScroll={this.onScrollbar}
           ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}
         />
-        <Logo className="top-0 left-1/2"
+        <Logo className="left-1/2"
           onClick={this.scrollTo}
           scroll={this.state.scroll}
           halfHeight={this.state.halfHeight}

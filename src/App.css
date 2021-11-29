@@ -169,14 +169,13 @@
 }
 
 /* Tooltip container */
-.tooltip {
+.custom-tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
+.custom-tooltip .tooltiptext {
   visibility: hidden;
   width: 160px;
   background: linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%);
@@ -200,7 +199,7 @@
 }
 
 /* Tooltip arrow */
-.tooltip .tooltiptext::after {
+.custom-tooltip .tooltiptext::after {
   content: "";
   /* position: absolute;
   top: 100%;
@@ -212,9 +211,19 @@
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+.custom-tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height .35s ease;
 }
 
 @media only screen and (max-width: 1024px) {

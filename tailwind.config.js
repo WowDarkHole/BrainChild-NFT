@@ -2,6 +2,14 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    colors: {
+      gray: {
+        darkest: '#22262A',
+      },
+      pink: {
+        light: '#FFC6CE',
+      }
+    },
     extend: {
       screens: {
         'portrait-sm': {'raw': '(orientation: portrait) and (max-width: 768px)'},
@@ -14,6 +22,9 @@ module.exports = {
       },
       scale: {
         '85': '0.85'
+      },
+      backdropBlur: {
+        '200': '200px',
       },
       width: {
         '18': '4.5rem',
