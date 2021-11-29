@@ -32,12 +32,12 @@ const Connect = forwardRef((_, ref) => {
                 <span className="inline sm:hidden mx-2 gradient-text font-cormorant font-bold text-2xl leading-tight align-bottom italic">Instagram</span>
                 <embed className={"h-7 pointer-events-none inline "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_instagram.svg"/>
                 <span className="hidden sm:inline mx-2 gradient-text font-cormorant font-bold text-2xl leading-tight align-bottom italic">Instagram</span>
-                <span className="tooltiptext">brainchildnft</span>
+                <span className="tooltiptext">@brainchildnft</span>
               </a>
               <a className="tooltip" href="https://twitter.com/BrainchildNFT">
                 <embed className={"h-7 pointer-events-none inline "+(isMobileDevice() ? "": "sm:w-12")} src="/assets/image_connect_twitter.svg"/>
                 <span className="gradient-text mx-2 font-cormorant font-bold text-2xl leading-tight align-bottom italic">Twitter</span>
-                <span className="tooltiptext">BrainchildNFT</span>
+                <span className="tooltiptext">@BrainchildNFT</span>
               </a>
               <a className="tooltip" href="https://t.me/joinchat/KxQp5cc1K35lM2Jl">
                 <span className="inline sm:hidden gradient-text mx-2 font-cormorant font-bold text-2xl leading-tight align-bottom italic">Telegram</span>
