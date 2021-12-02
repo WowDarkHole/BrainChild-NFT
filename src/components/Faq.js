@@ -21,7 +21,7 @@ function CustomToggle({ children, eventKey, callback, title }) {
         <span className="text-pink-light font-normal font-sora text-lg sm:text-2xl">
           {title}
         </span>
-        <embed className="ml-4 transition-all duration-700" src="/assets/icon_arrow.svg" style={{transform: `scaleY(${scale})`}}/>
+        <embed className="ml-4 transition-all duration-700 pointer-events-none" src="/assets/icon_arrow.svg" style={{transform: `scaleY(${scale})`}}/>
       </div>
     </button>
   );
@@ -87,7 +87,7 @@ const Faq = forwardRef((_, ref) => {
   ]
   return (
     <div className="relative min-h-screen flex items-center overflow-x-scroll overflow-y-hidden no-scrollbar mt-screen-1/4 select-none" ref={ref.containerRef}>
-      <div className="sm:p-24 w-full" ref={ref.contentRef}>
+      <div className="sm:p-24 w-full container mx-auto" ref={ref.contentRef}>
         <div className="relative w-full">
           <div className="w-full p-6 sm:p-8 text-black font-cormorant font-semibold italic text-xl sm:text-3xl backdrop-filter sm:backdrop-blur-0 backdrop-blur-200 bg-white bg-opacity-10">
             Let’s get a few questions out of the way...
@@ -98,7 +98,7 @@ const Faq = forwardRef((_, ref) => {
                 <CustomToggle eventKey="1" title={value.title}>
                 </CustomToggle>
                 <Accordion.Collapse eventKey="1">
-                  <div className="w-full p-8 sm:p-16 font-cormorant font-semibold text-3xl sm:text-4xl italic background-blur mb-1 sm:mb-2">
+                  <div className="w-full p-8 sm:p-16 font-cormorant font-semibold leading-normal sm:leading-normal text-3xl sm:text-4xl italic background-blur mb-1 sm:mb-2">
                     {value.desc}
                   </div>
                 </Accordion.Collapse>

@@ -33,6 +33,7 @@ module.exports = {
         '120': '30rem',
         '140': '35rem',
         '160': '40rem',
+        '240': '60rem',
         'screen-2': '200vw',
       },
       height: {

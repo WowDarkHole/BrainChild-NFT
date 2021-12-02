@@ -5,7 +5,6 @@ import Slide from './Slide';
 import Scrollbar from './Scrollbar';
 import Logo from './Logo';
 import isMobileDevice from '../utils/is-mobile';
-import ConceptDialog from './ConceptDialog';
 
 const scrollMode = {
   FULL_PAGE: 'full-page',
@@ -262,6 +261,8 @@ export default class FullPage extends React.Component {
           <div className="transition-all duration-700" ref={this._scrollContainer} style={{transform: 'translate(0, 0)'}}>
             {React.Children.map(this.props.children, (child, index) => (
               React.cloneElement(child, {
+                slide: slideId,
+                scroll: this.state.scroll,
                 ref: {containerRef: this._refs[index], contentRef: this._contentRefs[index], heroRef: this._heroRef}
               })
             ))}
@@ -283,25 +284,6 @@ export default class FullPage extends React.Component {
           scrollbarWidth={this.state.scrollbarWidth}
           ref={{containerRefs: this._refs, contentRefs: this._contentRefs}}
         />
-        <div className={"absolute transform transition-all cursor-pointer duration-500 "+(slideId === 1 ? "block": "hidden")+(isMobileDevice() ? " bottom-0 right-0" : " top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2")}
-          onClick={this.showModal}
-        >
-          {
-            isMobileDevice() && <div className="relative overflow-y-hidden h-22">
-              <embed className="w-40 h-16 mt-8 pointer-events-none" src="/assets/btn_concept_learnmore.svg"/>
-              <img className="absolute w-24 top-0 right-2" style={{zIndex: -1}} src="/assets/btn_concept_overlay_icon.webp" alt=""/>
-            </div>
-          }
-          {
-            !isMobileDevice() && (
-              <div className="w-40 h-40 rounded-full p-1 pointer-events-none" style={{background: 'linear-gradient(90.86deg, #FFC6CE 26.22%, #64D6EE 97.07%)', clipPath: 'circle(50%)'}}>
-                <img className="absolute w-24 top-16 left-1/2 transform -translate-x-1/2" src="/assets/btn_concept_overlay_icon.webp" alt=""/>
-                <embed className="w-full h-full animate-spin-normal pointer-events-none" src="/assets/text_concept_learnmore_circular.svg"/>
-              </div>
-            )
-          }
-        </div>
-        <ConceptDialog onHide={this.hideModal} visible={this.state.modalVisible}/>
       </>
     );
   }

@@ -29,24 +29,30 @@ const descTexts = {
 //   enhance: '/assets/text_concept_enhance_desc.svg',
 // };
 
-const Card = ({type}) => {
+const Card = ({type, current}) => {
 
   return (
     <div className="group relative radial-mask" style={{backgroundColor: '#22262A', maxWidth: '24rem', maxHeight: '24rem'}}>
-      <div className="absolute inline-flex flex-col justify-between h-full w-full items-start p-6 sm:p-12 top-0 left-0">
-        {/* <embed className="max-w-full invisible group-hover:visible transition duration-500 transform scale-125 group-hover:scale-100 origin-top-left translate-y-3 group-hover:translate-y-0" src={titleUrls[type]} alt=""/> */}
-        <p className="concept-title text-4xl sm:text-5xl uppercase max-w-full invisible group-hover:visible transition duration-500 transform scale-125 group-hover:scale-100 origin-top-left translate-y-3 group-hover:translate-y-0">
-          {type}
-        </p>
-        <div className="max-w-full">
-          {/* <embed className="mt-8 max-w-full invisible group-hover:visible transform duration-500 translate-y-10 group-hover:translate-y-0" src={descUrls[type]}/> */}
-          <p className="hero-title text-xl sm:text-2xl text-left mt-8 max-w-full invisible group-hover:visible transform duration-500 translate-y-10 group-hover:translate-y-0">
-            {descTexts[type]}
+      <div className="absolute inline-flex flex-col justify-between h-full w-full items-start p-2 sm:p-6 md:p-8 lg:p-10 xl:p-12 top-0 left-0">
+        <div className="hidden sm:block">
+          <p className={"concept-title text-xl sm:text-3xl uppercase max-w-full origin-top-left"
+            +(current ? " visible scale-100 translate-y-0": " invisible transform scale-125 translate-y-3")}>
+            {type}
           </p>
-          {/* <embed className="max-w-full transition duration-500 opacity-0 group-hover:opacity-100" src="/assets/btn_concept_learnmore.svg"/> */}
+          <div className="max-w-full">
+            <p className={"hero-title text-xl sm:text-xl text-left mt-8 max-w-full"
+            +(current ? " visible translate-y-0": " translate-y-10 invisible")}>
+              {descTexts[type]}
+            </p>
+          </div>
+        </div>
+        <div className="sm:hidden flex items-center justify-center w-full h-full">
+          <embed className="w-10 pointer-events-none" src="/assets/icon_x.svg"/>
         </div>
       </div>
-      <embed className="w-full transition-clip-path duration-500 circle-clip-36 group-hover:circle-clip-0" src={backgroundUrls[type]}/>
+      <div>
+        <embed className={"w-full pointer-events-none "+(current? "circle-clip-0": "circle-clip-36")} src={backgroundUrls[type]}/>
+      </div>
     </div>
   );
 }

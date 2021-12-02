@@ -226,6 +226,12 @@
   transition: height .35s ease;
 }
 
+.disable-animation .collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: none;
+}
+
 @media only screen and (max-width: 1024px) {
   .nft-level {
     padding: 20px;
