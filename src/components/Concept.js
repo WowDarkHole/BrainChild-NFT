@@ -26,6 +26,7 @@ function CustomToggle({ children, eventKey, callback, type, setActiveEvent }) {
 
 const Concept = forwardRef(({slide}, ref) => {
   const [activeEvent, setActiveEvent] = useState(null);
+  console.log(activeEvent);
   return (
     <div className="min-h-screen items-center flex w-full justify-center mt-screen-1/4" ref={ref.containerRef}>
       <div className="flex w-full px-8 md:px-32 pb-16 pt-32 md:pt-36 sm:pb-20" style={{height: 'max-content'}} ref={ref.contentRef}>
@@ -41,7 +42,7 @@ const Concept = forwardRef(({slide}, ref) => {
             </div>
             <div className="w-full sm:ml-8 mt-2 sm:mt-0">
               {
-                activeEvent === null &&
+                !activeEvent &&
                   <div className="p-10 sm:p-16 background-blur font-cormorant text-3xl sm:text-4xl font-semibold italic leading-snug">
                     <p style={{textIndent: '5rem'}}>
                       Brainchild aims to bring gamification of NFTs to our physical world via Services-as-a-NFT and project their identity through the cryptoverse. We seek to collaborate with artists and brands to help token holders build their identities and express their individuality within and beyond the cryptoverse. 
