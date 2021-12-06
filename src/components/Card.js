@@ -35,9 +35,10 @@ const Card = ({type, current}) => {
     <div className="group relative radial-mask" style={{backgroundColor: '#22262A', maxWidth: '24rem', maxHeight: '24rem'}}>
       <div className="absolute inline-flex flex-col justify-between h-full w-full items-start p-2 sm:p-6 md:p-8 lg:p-10 xl:p-12 top-0 left-0">
         <div className="hidden sm:block">
-          <p className={"concept-title text-xl sm:text-3xl uppercase max-w-full origin-top-left"
+          <p className={"concept-title text-xl sm:text-3xl uppercase max-w-full origin-top-left flex justify-between"
             +(current ? " visible scale-100 translate-y-0": " invisible transform scale-125 translate-y-3")}>
-            {type}
+            <span>{type}</span>
+            <embed className="w-8 pointer-events-none" src="/assets/icon_x.svg"/>
           </p>
           <div className="max-w-full">
             <p className={"hero-title text-xl sm:text-xl text-left mt-8 max-w-full"

@@ -43,7 +43,7 @@ const Faq = forwardRef((_, ref) => {
     { 
       id: 3,
       title: 'When do Ethclocks go on sale?',
-      desc: 'Brainchild will hold a fairlaunch raffle for Ethclock, estimated to be in mid-December 2021.',
+      desc: 'Brainchild will hold a fairlaunch raffle for Ethclock, estimated to be in Late January 2022.',
     },
     { 
       id: 4,
@@ -57,12 +57,16 @@ const Faq = forwardRef((_, ref) => {
       id: 5,
       title: 'How do I buy Ethclock?',
       desc: `
-            Public sale will be held in mid-December 2021 (estimated)
-            The fairlaunch raffle will be conducted in 3 stages:
-            1. Signature collection – wallet signatures will be collected within a 24 hour window.
-            2. Raffle – Using Chainlink VRF, 4207 wallets will be whitelisted for minting. Winners will be announced on our website and community channels. You can also connect your wallet to find out if you have been whitelisted.
-            3. Minting – You will have 48hours to mint exactly 1 Ethclock per whitelisted wallet.
-            Any unminted Ethclock will be raffled away by repeating the stages above in each subsequent week.
+        Public sale will be held in Late January 2022 (estimated)
+
+        The fairlaunch raffle will be conducted in 4 stages:
+        1. Signature collection – wallet signatures will be collected within a 24-hour window.
+        2. Raffle – Using Chainlink VRF, 4207 wallets will be whitelisted for minting. Winners will be announced on our website and community channels. You can also connect your wallet to find out if you have been whitelisted.
+        3. Minting – You will have 48hours to mint up to 3 Ethclock per whitelisted wallet.
+        
+        Any unminted Ethclock will be raffled away by repeating the first three stages above in each subsequent week.
+        
+        4. Reveal – Once all 5000 Ethclocks have been minted a full metadata will be revealed using ChainlinkVRF function.
       `,
     },
     { 
@@ -98,7 +102,7 @@ const Faq = forwardRef((_, ref) => {
                 <CustomToggle eventKey="1" title={value.title}>
                 </CustomToggle>
                 <Accordion.Collapse eventKey="1">
-                  <div className="w-full p-8 sm:p-16 font-cormorant font-semibold leading-normal sm:leading-normal text-3xl sm:text-4xl italic background-blur mb-1 sm:mb-2">
+                  <div className="w-full p-8 sm:p-16 font-cormorant font-semibold leading-tight sm:leading-tight text-2xl sm:text-4xl italic background-blur mb-1 sm:mb-2">
                     {value.desc}
                   </div>
                 </Accordion.Collapse>
