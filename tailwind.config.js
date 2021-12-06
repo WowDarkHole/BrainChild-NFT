@@ -43,10 +43,6 @@ module.exports = {
         '140': '35rem',
         '160': '40rem',
       },
-      margin: {
-        'screen-1/4': '25vh',
-        'screen-1/2': '50vh',
-      },
       maxWidth: {
         '320': '80rem',
       },
@@ -73,6 +69,8 @@ module.exports = {
         '84': '21rem',
         '168': '42rem',
         '252': '63rem',
+        'screen-1/4': '25vh',
+        'screen-1/2': '50vh',
       },
       fontFamily: {
         'cormorant': 'Cormorant Garamond',

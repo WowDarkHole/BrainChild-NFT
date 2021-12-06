@@ -58,6 +58,22 @@ h1 {
 .char::before, .char::after {
   display: none;
 }
+@supports not (
+  (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px))
+) {
+  .background-blur::after {
+    content: "";
+    position: absolute;
+    background-image: url('blur.png');
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.8;
+  }
+}
 
 @layer utilities {
   @variants responsive, hover, group-hover, focus {
@@ -84,6 +100,7 @@ h1 {
       background: rgba(255, 255, 255, 0.01);
       backdrop-filter: blur(200px);
       -webkit-backdrop-filter: blur(200px);
+      position: relative;
     }
 
     .gradient-text {

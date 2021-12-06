@@ -12,7 +12,7 @@ const EthClock = forwardRef((_, ref) => {
             <div className="relative rounded-full mt-1 ml-1 sm:mt-4 sm:ml-4" style={{clipPath: 'circle(49%)'}}>
               <video className="w-full" id="vid" controls={false} autoPlay={true} loop={true} name="media" playsInline={true} muted={true}>
                 <source src="/assets/image_ethereum_clock.webm" type="video/webm"/>
-                <source src="/assets/image_ethereum_clock.mp4" type="video/webm"/>
+                <source src="/assets/image_ethereum_clock.mp4" type="video/mp4"/>
               </video>
               <div className="h-full w-full p-1 absolute top-0 left-0 animate-spin-slow">
                 <embed className="h-full w-full" src="/assets/launch_time.svg"/>
