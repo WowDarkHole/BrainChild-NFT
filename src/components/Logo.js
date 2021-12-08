@@ -80,7 +80,7 @@ const Logo = React.forwardRef(({className, scroll, onClick, halfHeight, scrollba
     <div className={parentClass} style={parentStyle} onClick={onClick}>
       <div className={containerClass} style={containerStyle}>
         <div className="p-0 sm:p-1 rounded-full" style={{backgroundColor: '#22262A'}}>
-          <img className="animate-spin-slow w-full h-full" src="/assets/text_hero_brainchild.webp" alt=""/>
+          <img className="animate-spin-slow w-full h-full" src="/assets/text_hero_brainchild.webp" onError={(evt) => {evt.currentTarget.src="/assets/text_hero_brainchild.png"}} alt=""/>
         </div>
         <embed className={logoClass}  style={{backgroundColor: '#22262A'}} src="/assets/logo_brain.svg" alt=""/>
       </div>

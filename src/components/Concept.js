@@ -47,7 +47,7 @@ const Concept = forwardRef(({slide}, ref) => {
                     <p style={{textIndent: '5rem'}}>
                       Brainchild aims to bring gamification of NFTs to our physical world via Services-as-a-NFT and project their identity through the cryptoverse. We seek to collaborate with artists and brands to help token holders build their identities and express their individuality within and beyond the cryptoverse. 
                     </p>
-                    <p className="mt-10">
+                    <div className="mt-10">
                         <p>Token holders will be able to:</p>
                         <p>1. Redeem - Regularly redeem the physical manifestation of their NFT.</p>
                         <p>2. Enhance - Interact with our smart contract to enhance their NFT via a probability 
@@ -55,7 +55,7 @@ const Concept = forwardRef(({slide}, ref) => {
                         <p>3. Participate - Exclusive access to future mints as well as real-world privileges and 
                         events.</p>
                         <p>4. Vote - Determine what the next product will be, and lock-up period for redemption.</p>
-                    </p>
+                    </div>
                     <p className="flex justify-between mt-10">
                       <embed className="hidden sm:block" src="/assets/icon_overlay_arrow.svg" />
                       <embed className="block sm:hidden" src="/assets/icon_overlay_arrow_mobile.svg" />
@@ -94,9 +94,11 @@ const Concept = forwardRef(({slide}, ref) => {
                     <div className="p-4 col-span-1 sm:col-span-3 w-full block sm:hidden overflow-x-scroll"><embed className="h-96" src="/assets/image_concept_overlay_outcome_mobile.svg"/></div>
                   </div>
                   <div>
-                    <p className="font-cormorant text-2xl sm:text-4xl font-semibold italic leading-tight">Random traits in tokens determining rarity</p>
+                    <p className="font-cormorant mt-10 text-2xl sm:text-4xl font-semibold italic leading-tight">Random traits in tokens determining rarity</p>
                     <embed className="mt-10 w-full hidden sm:block" src="/assets/image_concept_overlay_traits.svg"/>
-                    <embed className="mt-10 w-full block sm:hidden" src="/assets/image_concept_overlay_traits_mobile.svg"/>
+                    <embed className="p-6 w-full block sm:hidden" src="/assets/image_concept_overlay_traits_mobile1.svg"/>
+                    <embed className="p-6 w-full block sm:hidden" src="/assets/image_concept_overlay_traits_mobile2.svg"/>
+                    <embed className="p-6 w-full block sm:hidden" src="/assets/image_concept_overlay_traits_mobile3.svg"/>
                   </div>
                 </div>
               </Accordion.Collapse>
